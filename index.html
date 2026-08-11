@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Stage 2 - Structure of Atom For P2 Culminating Task</title>
+<title>Science Hub - Stage 1</title>
 
 <style>
 
@@ -23,7 +23,6 @@ body {
 
     font-family: Arial, sans-serif;
 
-    /* LIGHTER BACKGROUND */
     background:
         linear-gradient(
             135deg,
@@ -44,10 +43,7 @@ body {
 .page {
     min-height: 100vh;
 
-    padding:
-        22px 35px 30px;
-
-    overflow: hidden;
+    padding: 25px 35px 40px;
 }
 
 
@@ -56,10 +52,9 @@ body {
 ===================================================== */
 
 .header {
-
     max-width: 1350px;
 
-    margin: auto;
+    margin: auto auto 25px;
 
     display: grid;
 
@@ -69,15 +64,12 @@ body {
         220px;
 
     align-items: center;
-
-    margin-bottom: 22px;
 }
 
 
 /* STAGE */
 
 .stage {
-
     margin: 0;
 
     font-size: 3.1rem;
@@ -101,12 +93,11 @@ body {
 /* TITLE */
 
 .title {
-
     margin: 0;
 
     text-align: center;
 
-    font-size: 3.3rem;
+    font-size: 3.4rem;
 
     font-weight: 900;
 
@@ -130,53 +121,92 @@ body {
 /* AUTHOR */
 
 .author {
-
     text-align: right;
 
-    font-size: 1.35rem;
+    font-size: 1.2rem;
 
-    line-height: 1.35;
+    line-height: 1.4;
 
     color: #8b55c9;
 }
 
 
 /* =====================================================
-   MAIN AREA
+   INTRO
 ===================================================== */
 
-.main {
+.intro {
+    max-width: 950px;
 
-    max-width: 1350px;
+    margin: 0 auto 30px;
+
+    text-align: center;
+}
+
+.intro h2 {
+    margin: 0 0 8px;
+
+    font-size: 1.8rem;
+
+    color: #244d85;
+}
+
+.intro p {
+    margin: 0;
+
+    color: #526681;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   TOPIC GRID
+===================================================== */
+
+.topic-grid {
+    max-width: 1200px;
 
     margin: auto;
 
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.65fr)
-        minmax(300px, 0.8fr);
+        repeat(2, 1fr);
 
-    gap: 22px;
+    gap: 25px;
 }
 
 
 /* =====================================================
-   GLASS PANELS
+   TOPIC CARD
 ===================================================== */
 
-.panel {
+.topic-card {
+
+    min-height: 410px;
+
+    padding: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    border-radius: 28px;
 
     background:
-        rgba(255,255,255,0.45);
+        rgba(255,255,255,0.48);
 
     border:
-        1px solid rgba(255,255,255,0.75);
-
-    border-radius: 25px;
+        1px solid
+        rgba(255,255,255,0.8);
 
     box-shadow:
-        0 12px 35px
+        0 15px 40px
         rgba(62,91,130,0.18);
 
     backdrop-filter:
@@ -184,584 +214,230 @@ body {
 
     -webkit-backdrop-filter:
         blur(15px);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
-/* =====================================================
-   BIG SIMULATION PANEL
-===================================================== */
+/* CARD HOVER */
 
-.sim-panel {
+.topic-card:hover {
 
-    min-height: 555px;
+    transform:
+        translateY(-8px);
 
-    padding: 20px;
-
-    position: relative;
+    box-shadow:
+        0 22px 50px
+        rgba(50,80,130,0.25);
 }
 
 
-/* SIM HEADER */
+/* BIG ICON */
 
-.sim-header {
+.topic-icon {
 
-    display: flex;
+    font-size: 5rem;
 
-    justify-content: space-between;
-
-    align-items: center;
+    display: block;
 
     margin-bottom: 12px;
 }
 
-.sim-heading {
 
-    margin: 0;
+/* CARD TITLE */
 
-    font-size: 1.35rem;
+.topic-title {
 
-    font-weight: 800;
+    margin: 0 0 12px;
 
-    color: #183c78;
+    font-size: 2rem;
+
+    font-weight: 900;
+
+    color: #244d85;
 }
 
-.sim-status {
+
+/* CARD DESCRIPTION */
+
+.topic-description {
+
+    margin: 0 0 20px;
+
+    max-width: 500px;
+
+    color: #526681;
+
+    line-height: 1.55;
+
+    font-size: 0.98rem;
+}
+
+
+/* =====================================================
+   FEATURE PILLS
+===================================================== */
+
+.features {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+}
+
+.feature {
 
     padding:
-        7px 12px;
+        7px 11px;
 
     border-radius: 20px;
 
     background:
-        rgba(255,255,255,0.7);
+        rgba(255,255,255,0.65);
 
-    font-size: 0.8rem;
+    color: #466184;
 
-    font-weight: bold;
-
-    color: #47638a;
-}
-
-
-/* =====================================================
-   SIMULATION WINDOW
-===================================================== */
-
-.sim-window {
-
-    height: 465px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #e9faff 0%,
-            #d7ecfb 45%,
-            #bcd4ee 100%
-        );
-
-    border:
-        1px solid
-        rgba(60,100,150,0.15);
-
-    box-shadow:
-        inset 0 0 40px
-        rgba(80,130,180,0.12);
-}
-
-
-/* =====================================================
-   ATOM
-===================================================== */
-
-.atom {
-
-    position: absolute;
-
-    width: 430px;
-    height: 430px;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-}
-
-
-/* =====================================================
-   ORBITS
-===================================================== */
-
-.orbit {
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    border:
-        4px solid
-        rgba(79,105,218,0.65);
-
-    box-shadow:
-        0 0 10px
-        rgba(100,100,220,0.18);
-}
-
-
-/* FIRST ORBIT */
-
-.orbit.one {
-
-    width: 180px;
-    height: 90px;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(25deg);
-}
-
-
-/* SECOND ORBIT */
-
-.orbit.two {
-
-    width: 285px;
-    height: 140px;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(-30deg);
-}
-
-
-/* THIRD ORBIT */
-
-.orbit.three {
-
-    width: 395px;
-    height: 185px;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(70deg);
-}
-
-
-/* =====================================================
-   NUCLEUS
-===================================================== */
-
-.nucleus {
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    width: 105px;
-    height: 105px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #ffffff,
-            #efc8ff 16%,
-            #a64fd2 55%,
-            #632595 100%
-        );
-
-    box-shadow:
-        0 0 30px
-        rgba(170,75,230,0.55),
-
-        inset -12px -12px 20px
-        rgba(50,0,80,0.2);
-
-    z-index: 5;
-}
-
-
-/* LITTLE NUCLEONS */
-
-.nucleon {
-
-    position: absolute;
-
-    width: 23px;
-    height: 23px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,0.55);
-
-    border:
-        2px solid
-        rgba(100,30,140,0.3);
-}
-
-.nucleon.one {
-    left: 22px;
-    top: 30px;
-}
-
-.nucleon.two {
-    right: 20px;
-    top: 25px;
-}
-
-.nucleon.three {
-    left: 40px;
-    bottom: 18px;
-}
-
-
-/* =====================================================
-   ELECTRONS
-===================================================== */
-
-.electron {
-
-    position: absolute;
-
-    width: 17px;
-    height: 17px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            white,
-            #39c8ff 40%,
-            #3565e8 100%
-        );
-
-    box-shadow:
-        0 0 15px
-        rgba(40,180,255,0.9);
-}
-
-
-/* POSITIONS */
-
-.e1 {
-
-    right: -9px;
-
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-}
-
-.e2 {
-
-    left: -9px;
-
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-}
-
-.e3 {
-
-    left: 50%;
-
-    top: -9px;
-
-    transform:
-        translateX(-50%);
-}
-
-
-/* =====================================================
-   SIMULATION LABEL
-===================================================== */
-
-.sim-label {
-
-    position: absolute;
-
-    bottom: 13px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    padding:
-        8px 15px;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,0.72);
-
-    color: #31517c;
-
-    font-size: 0.82rem;
+    font-size: 0.78rem;
 
     font-weight: bold;
 }
 
 
 /* =====================================================
-   RIGHT COLUMN
+   EXPLORE BUTTON
 ===================================================== */
 
-.side {
+.explore {
 
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 16px;
-}
-
-
-/* INFO CARD */
-
-.info {
-
-    padding: 20px;
-}
-
-.info h2 {
-
-    margin:
-        0 0 12px;
-
-    font-size: 1.3rem;
-
-    color: #234d8e;
-}
-
-.info p {
-
-    margin: 0;
-
-    color: #40516d;
-
-    line-height: 1.5;
-
-    font-size: 0.95rem;
-}
-
-
-/* FACTS */
-
-.fact {
-
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 12px;
-
-    padding: 10px;
-
-    border-radius: 12px;
-
-    background:
-        rgba(255,255,255,0.45);
-
-    color: #40516d;
-
-    font-size: 0.88rem;
-
-    line-height: 1.35;
-}
-
-
-/* =====================================================
-   DID YOU KNOW
-===================================================== */
-
-.did-you-know {
-
-    padding: 20px;
-
-    background:
-        rgba(224,241,194,0.7);
-
-    border:
-        1px solid
-        rgba(120,150,90,0.2);
-}
-
-.did-you-know h2 {
-
-    color: #466b3b;
-}
-
-.did-you-know p {
-
-    color: #40533b;
-}
-
-
-/* =====================================================
-   TOPICS
-===================================================== */
-
-.topics-panel {
-
-    max-width: 1350px;
-
-    margin:
-        20px auto 0;
-
-    padding: 15px;
-
-    display: flex;
+    display: inline-flex;
 
     align-items: center;
 
     gap: 10px;
 
-    flex-wrap: wrap;
-}
-
-
-/* TOPIC LABEL */
-
-.topic-label {
-
-    font-weight: 900;
-
-    color: #31527f;
-
-    margin-right: 5px;
-}
-
-
-/* TOPIC BUTTON */
-
-.topic {
-
-    border: none;
-
     padding:
-        11px 16px;
+        12px 19px;
 
     border-radius: 14px;
-
-    background:
-        rgba(255,255,255,0.55);
-
-    color: #31527f;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.topic:hover {
-
-    transform:
-        translateY(-2px);
-
-    background:
-        white;
-
-    box-shadow:
-        0 5px 15px
-        rgba(50,80,130,0.15);
-}
-
-.topic.active {
 
     background:
         #315dc4;
 
     color: white;
 
-    box-shadow:
-        0 5px 15px
-        rgba(50,90,190,0.25);
+    font-size: 0.9rem;
+
+    font-weight: 800;
 }
 
 
 /* =====================================================
-   RESOURCES
+   DECORATIVE CIRCLE
 ===================================================== */
 
-.resources {
+.topic-card::after {
 
-    max-width: 1350px;
+    content: "";
 
-    margin:
-        16px auto 0;
+    position: absolute;
 
-    display: grid;
+    width: 180px;
+    height: 180px;
 
-    grid-template-columns:
-        1fr 1fr;
+    right: -65px;
+    bottom: -65px;
 
-    gap: 14px;
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    pointer-events: none;
 }
 
 
-.resource {
+/* =====================================================
+   STATES CARD
+===================================================== */
 
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding:
-        14px 18px;
-
-    text-decoration: none;
-
-    border-radius: 15px;
+.states-card {
 
     background:
-        rgba(255,255,255,0.52);
+        linear-gradient(
+            145deg,
+            rgba(210,245,255,0.65),
+            rgba(255,255,255,0.42)
+        );
+}
 
-    color: #31527f;
 
-    font-weight: bold;
+/* =====================================================
+   ATOM CARD
+===================================================== */
+
+.atom-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(225,215,255,0.65),
+            rgba(255,255,255,0.42)
+        );
+}
+
+
+/* =====================================================
+   COMING SOON
+===================================================== */
+
+.coming-soon {
+
+    max-width: 1200px;
+
+    margin: 25px auto 0;
+
+    padding: 18px 25px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.38);
 
     border:
         1px solid
-        rgba(255,255,255,0.8);
+        rgba(255,255,255,0.7);
 
-    transition: 0.2s;
+    color: #60728c;
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
 }
 
-.resource:hover {
 
-    background: white;
+/* =====================================================
+   FOOTER
+===================================================== */
 
-    transform:
-        translateY(-2px);
+.footer {
 
-    box-shadow:
-        0 7px 18px
-        rgba(60,90,130,0.15);
+    max-width: 1200px;
+
+    margin: 22px auto 0;
+
+    text-align: center;
+
+    color: #71829b;
+
+    font-size: 0.8rem;
 }
 
 
@@ -769,49 +445,44 @@ body {
    RESPONSIVE
 ===================================================== */
 
-@media(max-width: 950px) {
+@media(max-width: 850px) {
 
     .header {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         text-align: center;
+    }
+
+    .stage {
+
+        font-size: 2.3rem;
+    }
+
+    .title {
+
+        font-size: 2.5rem;
+
+        margin: 5px 0;
     }
 
     .author {
 
         text-align: center;
-
-        margin-top: 5px;
     }
 
-    .main {
+    .topic-grid {
 
-        grid-template-columns:
-            1fr;
-    }
-
-    .side {
-
-        display: grid;
-
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns: 1fr;
     }
 }
 
 
-@media(max-width: 650px) {
+@media(max-width: 550px) {
 
     .page {
 
-        padding: 15px;
-    }
-
-    .stage {
-
-        font-size: 2.2rem;
+        padding: 18px 15px 30px;
     }
 
     .title {
@@ -819,27 +490,21 @@ body {
         font-size: 2rem;
     }
 
-    .side {
+    .topic-card {
 
-        display: flex;
+        min-height: 370px;
+
+        padding: 24px;
     }
 
-    .resources {
+    .topic-icon {
 
-        grid-template-columns:
-            1fr;
+        font-size: 4rem;
     }
 
-    .sim-window {
+    .topic-title {
 
-        height: 400px;
-    }
-
-    .atom {
-
-        transform:
-            translate(-50%, -50%)
-            scale(0.75);
+        font-size: 1.65rem;
     }
 }
 
@@ -848,7 +513,6 @@ body {
 
 
 <body>
-
 
 <div class="page">
 
@@ -860,11 +524,11 @@ body {
 <header class="header">
 
     <h2 class="stage">
-        STAGE 2
+        STAGE 1
     </h2>
 
     <h1 class="title">
-        STRUCTURE OF ATOM
+        🧪 SCIENCE HUB
     </h1>
 
     <div class="author">
@@ -877,246 +541,169 @@ body {
 
 
 <!-- =====================================================
-     MAIN
+     INTRO
 ===================================================== -->
 
-<main class="main">
+<section class="intro">
 
+    <h2>
+        Explore • Experiment • Discover
+    </h2>
 
-    <!-- =================================================
-         BIG SIMULATION
-    ================================================== -->
+    <p>
+        Welcome to your interactive science learning hub!
+        Choose a topic below and dive into simulations,
+        facts, experiments and activities.
+    </p>
 
-    <section class="panel sim-panel">
-
-        <div class="sim-header">
-
-            <h2 class="sim-heading">
-                ⚛️ Interactive Atom
-            </h2>
-
-            <div class="sim-status">
-                LIVE SIMULATION
-            </div>
-
-        </div>
-
-
-        <div class="sim-window">
-
-
-            <div class="atom">
-
-
-                <!-- ORBITS -->
-
-                <div class="orbit one">
-
-                    <div class="electron e1"></div>
-
-                </div>
-
-
-                <div class="orbit two">
-
-                    <div class="electron e2"></div>
-
-                </div>
-
-
-                <div class="orbit three">
-
-                    <div class="electron e3"></div>
-
-                </div>
-
-
-                <!-- NUCLEUS -->
-
-                <div class="nucleus">
-
-                    <div class="nucleon one"></div>
-                    <div class="nucleon two"></div>
-                    <div class="nucleon three"></div>
-
-                </div>
-
-
-            </div>
-
-
-            <div class="sim-label">
-                Nucleus + Electron Shells
-            </div>
-
-        </div>
-
-    </section>
+</section>
 
 
 
-    <!-- =================================================
-         INFORMATION
-    ================================================== -->
+<!-- =====================================================
+     TOPIC CARDS
+===================================================== -->
 
-    <aside class="side">
-
-
-        <div class="panel info">
-
-            <h2>
-                ⚛️ Atom Details
-            </h2>
-
-            <p>
-                An atom is the basic unit of an element.
-                It contains a tiny central nucleus
-                surrounded by electrons.
-            </p>
+<main class="topic-grid">
 
 
-            <div class="fact">
-                🟣
-                <span>
-                    <b>Nucleus</b><br>
-                    Contains protons and neutrons.
-                </span>
-            </div>
+    <!-- ================================================
+         STATES OF MATTER
+    ================================================= -->
+
+    <a
+        href="states-of-matter.html"
+        class="topic-card states-card"
+    >
+
+        <span class="topic-icon">
+            🧊
+        </span>
+
+        <h2 class="topic-title">
+            States of Matter
+        </h2>
+
+        <p class="topic-description">
+            Explore how particles behave in different
+            states of matter — from tightly packed solids
+            to energetic plasma and mysterious BECs.
+        </p>
 
 
-            <div class="fact">
-                ➕
-                <span>
-                    <b>Proton</b><br>
-                    Has a positive electric charge.
-                </span>
-            </div>
+        <div class="features">
 
+            <span class="feature">
+                🧊 Solid
+            </span>
 
-            <div class="fact">
-                ⚪
-                <span>
-                    <b>Neutron</b><br>
-                    Has no electric charge.
-                </span>
-            </div>
+            <span class="feature">
+                💧 Liquid
+            </span>
 
+            <span class="feature">
+                💨 Gas
+            </span>
 
-            <div class="fact">
-                🔵
-                <span>
-                    <b>Electron</b><br>
-                    Has a negative electric charge.
-                </span>
-            </div>
+            <span class="feature">
+                ⚡ Plasma
+            </span>
+
+            <span class="feature">
+                ⚛️ BEC
+            </span>
 
         </div>
 
 
+        <span class="explore">
+            Explore Simulation →
+        </span>
 
-        <div class="panel did-you-know">
+    </a>
 
-            <h2>
-                💡 Did You Know?
-            </h2>
 
-            <p>
-                An atom is mostly empty space.
-                The nucleus is incredibly tiny
-                compared with the size of the
-                whole atom.
-            </p>
+
+    <!-- ================================================
+         STRUCTURE OF ATOM
+    ================================================= -->
+
+    <a
+        href="structure-of-atom.html"
+        class="topic-card atom-card"
+    >
+
+        <span class="topic-icon">
+            ⚛️
+        </span>
+
+        <h2 class="topic-title">
+            Structure of Atom
+        </h2>
+
+        <p class="topic-description">
+            Discover the tiny world inside an atom.
+            Explore the nucleus, protons, neutrons,
+            electrons and electron shells.
+        </p>
+
+
+        <div class="features">
+
+            <span class="feature">
+                🟣 Nucleus
+            </span>
+
+            <span class="feature">
+                ➕ Proton
+            </span>
+
+            <span class="feature">
+                ⚪ Neutron
+            </span>
+
+            <span class="feature">
+                🔵 Electron
+            </span>
+
+            <span class="feature">
+                🌀 Shells
+            </span>
 
         </div>
 
-    </aside>
+
+        <span class="explore">
+            Explore Atom →
+        </span>
+
+    </a>
 
 </main>
 
 
 
 <!-- =====================================================
-     TOPIC NAVIGATION
+     FUTURE CONTENT
 ===================================================== -->
 
-<section class="panel topics-panel">
+<section class="coming-soon">
 
-    <span class="topic-label">
-        EXPLORE:
-    </span>
-
-    <button class="topic active">
-        ⚛️ Atom
-    </button>
-
-    <button class="topic">
-        🟣 Nucleus
-    </button>
-
-    <button class="topic">
-        ➕ Proton
-    </button>
-
-    <button class="topic">
-        ⚪ Neutron
-    </button>
-
-    <button class="topic">
-        🔵 Electron
-    </button>
-
-    <button class="topic">
-        🌀 Electron Shells
-    </button>
+    🚀 More interactive science topics coming soon...
 
 </section>
 
 
 
 <!-- =====================================================
-     RESOURCES
+     FOOTER
 ===================================================== -->
 
-<section class="resources">
+<footer class="footer">
 
+    🧪 Science Hub • Stage 1 • Learn Science by Exploring
 
-    <a
-        class="resource"
-        href="https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_all.html"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-
-        <span>
-            ⚛️ PhET — Build an Atom
-        </span>
-
-        <span>
-            ↗
-        </span>
-
-    </a>
-
-
-    <a
-        class="resource"
-        href="https://www.youtube.com/watch?v=_INF3_30lUE"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-
-        <span>
-            🎥 Structure of Atom Video
-        </span>
-
-        <span>
-            ↗
-        </span>
-
-    </a>
-
-
-</section>
+</footer>
 
 
 </div>
@@ -1124,4 +711,3 @@ body {
 </body>
 
 </html>
- 
