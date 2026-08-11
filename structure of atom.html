@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stage 2 - Structure of Atom For P2 Culminating Task</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    /* LIGHTER BACKGROUND */
+    background:
+        linear-gradient(
+            135deg,
+            #e4fbdc 0%,
+            #d5f4ed 28%,
+            #ccecf8 60%,
+            #bcd4f5 100%
+        );
+
+    color: #172554;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+    min-height: 100vh;
+
+    padding:
+        22px 35px 30px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    max-width: 1350px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        220px
+        1fr
+        220px;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+
+/* STAGE */
+
+.stage {
+
+    margin: 0;
+
+    font-size: 3.1rem;
+
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #11a9b0,
+            #64c85b
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* TITLE */
+
+.title {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 3.3rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0756ad,
+            #6554d9,
+            #b84fd0
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* AUTHOR */
+
+.author {
+
+    text-align: right;
+
+    font-size: 1.35rem;
+
+    line-height: 1.35;
+
+    color: #8b55c9;
+}
+
+
+/* =====================================================
+   MAIN AREA
+===================================================== */
+
+.main {
+
+    max-width: 1350px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.65fr)
+        minmax(300px, 0.8fr);
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   GLASS PANELS
+===================================================== */
+
+.panel {
+
+    background:
+        rgba(255,255,255,0.45);
+
+    border:
+        1px solid rgba(255,255,255,0.75);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(62,91,130,0.18);
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+}
+
+
+/* =====================================================
+   BIG SIMULATION PANEL
+===================================================== */
+
+.sim-panel {
+
+    min-height: 555px;
+
+    padding: 20px;
+
+    position: relative;
+}
+
+
+/* SIM HEADER */
+
+.sim-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+.sim-heading {
+
+    margin: 0;
+
+    font-size: 1.35rem;
+
+    font-weight: 800;
+
+    color: #183c78;
+}
+
+.sim-status {
+
+    padding:
+        7px 12px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.7);
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+    color: #47638a;
+}
+
+
+/* =====================================================
+   SIMULATION WINDOW
+===================================================== */
+
+.sim-window {
+
+    height: 465px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #e9faff 0%,
+            #d7ecfb 45%,
+            #bcd4ee 100%
+        );
+
+    border:
+        1px solid
+        rgba(60,100,150,0.15);
+
+    box-shadow:
+        inset 0 0 40px
+        rgba(80,130,180,0.12);
+}
+
+
+/* =====================================================
+   ATOM
+===================================================== */
+
+.atom {
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+/* =====================================================
+   ORBITS
+===================================================== */
+
+.orbit {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border:
+        4px solid
+        rgba(79,105,218,0.65);
+
+    box-shadow:
+        0 0 10px
+        rgba(100,100,220,0.18);
+}
+
+
+/* FIRST ORBIT */
+
+.orbit.one {
+
+    width: 180px;
+    height: 90px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(25deg);
+}
+
+
+/* SECOND ORBIT */
+
+.orbit.two {
+
+    width: 285px;
+    height: 140px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-30deg);
+}
+
+
+/* THIRD ORBIT */
+
+.orbit.three {
+
+    width: 395px;
+    height: 185px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(70deg);
+}
+
+
+/* =====================================================
+   NUCLEUS
+===================================================== */
+
+.nucleus {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #ffffff,
+            #efc8ff 16%,
+            #a64fd2 55%,
+            #632595 100%
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(170,75,230,0.55),
+
+        inset -12px -12px 20px
+        rgba(50,0,80,0.2);
+
+    z-index: 5;
+}
+
+
+/* LITTLE NUCLEONS */
+
+.nucleon {
+
+    position: absolute;
+
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    border:
+        2px solid
+        rgba(100,30,140,0.3);
+}
+
+.nucleon.one {
+    left: 22px;
+    top: 30px;
+}
+
+.nucleon.two {
+    right: 20px;
+    top: 25px;
+}
+
+.nucleon.three {
+    left: 40px;
+    bottom: 18px;
+}
+
+
+/* =====================================================
+   ELECTRONS
+===================================================== */
+
+.electron {
+
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            white,
+            #39c8ff 40%,
+            #3565e8 100%
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(40,180,255,0.9);
+}
+
+
+/* POSITIONS */
+
+.e1 {
+
+    right: -9px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+.e2 {
+
+    left: -9px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+.e3 {
+
+    left: 50%;
+
+    top: -9px;
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* =====================================================
+   SIMULATION LABEL
+===================================================== */
+
+.sim-label {
+
+    position: absolute;
+
+    bottom: 13px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        8px 15px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.72);
+
+    color: #31517c;
+
+    font-size: 0.82rem;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   RIGHT COLUMN
+===================================================== */
+
+.side {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* INFO CARD */
+
+.info {
+
+    padding: 20px;
+}
+
+.info h2 {
+
+    margin:
+        0 0 12px;
+
+    font-size: 1.3rem;
+
+    color: #234d8e;
+}
+
+.info p {
+
+    margin: 0;
+
+    color: #40516d;
+
+    line-height: 1.5;
+
+    font-size: 0.95rem;
+}
+
+
+/* FACTS */
+
+.fact {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+    padding: 10px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.45);
+
+    color: #40516d;
+
+    font-size: 0.88rem;
+
+    line-height: 1.35;
+}
+
+
+/* =====================================================
+   DID YOU KNOW
+===================================================== */
+
+.did-you-know {
+
+    padding: 20px;
+
+    background:
+        rgba(224,241,194,0.7);
+
+    border:
+        1px solid
+        rgba(120,150,90,0.2);
+}
+
+.did-you-know h2 {
+
+    color: #466b3b;
+}
+
+.did-you-know p {
+
+    color: #40533b;
+}
+
+
+/* =====================================================
+   TOPICS
+===================================================== */
+
+.topics-panel {
+
+    max-width: 1350px;
+
+    margin:
+        20px auto 0;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* TOPIC LABEL */
+
+.topic-label {
+
+    font-weight: 900;
+
+    color: #31527f;
+
+    margin-right: 5px;
+}
+
+
+/* TOPIC BUTTON */
+
+.topic {
+
+    border: none;
+
+    padding:
+        11px 16px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    color: #31527f;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.topic:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(50,80,130,0.15);
+}
+
+.topic.active {
+
+    background:
+        #315dc4;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(50,90,190,0.25);
+}
+
+
+/* =====================================================
+   RESOURCES
+===================================================== */
+
+.resources {
+
+    max-width: 1350px;
+
+    margin:
+        16px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 14px;
+}
+
+
+.resource {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        14px 18px;
+
+    text-decoration: none;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,0.52);
+
+    color: #31527f;
+
+    font-weight: bold;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.8);
+
+    transition: 0.2s;
+}
+
+.resource:hover {
+
+    background: white;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(60,90,130,0.15);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width: 950px) {
+
+    .header {
+
+        grid-template-columns:
+            1fr;
+
+        text-align: center;
+    }
+
+    .author {
+
+        text-align: center;
+
+        margin-top: 5px;
+    }
+
+    .main {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .side {
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+@media(max-width: 650px) {
+
+    .page {
+
+        padding: 15px;
+    }
+
+    .stage {
+
+        font-size: 2.2rem;
+    }
+
+    .title {
+
+        font-size: 2rem;
+    }
+
+    .side {
+
+        display: flex;
+    }
+
+    .resources {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .sim-window {
+
+        height: 400px;
+    }
+
+    .atom {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.75);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <h2 class="stage">
+        STAGE 2
+    </h2>
+
+    <h1 class="title">
+        STRUCTURE OF ATOM
+    </h1>
+
+    <div class="author">
+        By Gauransh<br>
+        Verma 7B
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+
+    <!-- =================================================
+         BIG SIMULATION
+    ================================================== -->
+
+    <section class="panel sim-panel">
+
+        <div class="sim-header">
+
+            <h2 class="sim-heading">
+                ⚛️ Interactive Atom
+            </h2>
+
+            <div class="sim-status">
+                LIVE SIMULATION
+            </div>
+
+        </div>
+
+
+        <div class="sim-window">
+
+
+            <div class="atom">
+
+
+                <!-- ORBITS -->
+
+                <div class="orbit one">
+
+                    <div class="electron e1"></div>
+
+                </div>
+
+
+                <div class="orbit two">
+
+                    <div class="electron e2"></div>
+
+                </div>
+
+
+                <div class="orbit three">
+
+                    <div class="electron e3"></div>
+
+                </div>
+
+
+                <!-- NUCLEUS -->
+
+                <div class="nucleus">
+
+                    <div class="nucleon one"></div>
+                    <div class="nucleon two"></div>
+                    <div class="nucleon three"></div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="sim-label">
+                Nucleus + Electron Shells
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         INFORMATION
+    ================================================== -->
+
+    <aside class="side">
+
+
+        <div class="panel info">
+
+            <h2>
+                ⚛️ Atom Details
+            </h2>
+
+            <p>
+                An atom is the basic unit of an element.
+                It contains a tiny central nucleus
+                surrounded by electrons.
+            </p>
+
+
+            <div class="fact">
+                🟣
+                <span>
+                    <b>Nucleus</b><br>
+                    Contains protons and neutrons.
+                </span>
+            </div>
+
+
+            <div class="fact">
+                ➕
+                <span>
+                    <b>Proton</b><br>
+                    Has a positive electric charge.
+                </span>
+            </div>
+
+
+            <div class="fact">
+                ⚪
+                <span>
+                    <b>Neutron</b><br>
+                    Has no electric charge.
+                </span>
+            </div>
+
+
+            <div class="fact">
+                🔵
+                <span>
+                    <b>Electron</b><br>
+                    Has a negative electric charge.
+                </span>
+            </div>
+
+        </div>
+
+
+
+        <div class="panel did-you-know">
+
+            <h2>
+                💡 Did You Know?
+            </h2>
+
+            <p>
+                An atom is mostly empty space.
+                The nucleus is incredibly tiny
+                compared with the size of the
+                whole atom.
+            </p>
+
+        </div>
+
+    </aside>
+
+</main>
+
+
+
+<!-- =====================================================
+     TOPIC NAVIGATION
+===================================================== -->
+
+<section class="panel topics-panel">
+
+    <span class="topic-label">
+        EXPLORE:
+    </span>
+
+    <button class="topic active">
+        ⚛️ Atom
+    </button>
+
+    <button class="topic">
+        🟣 Nucleus
+    </button>
+
+    <button class="topic">
+        ➕ Proton
+    </button>
+
+    <button class="topic">
+        ⚪ Neutron
+    </button>
+
+    <button class="topic">
+        🔵 Electron
+    </button>
+
+    <button class="topic">
+        🌀 Electron Shells
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESOURCES
+===================================================== -->
+
+<section class="resources">
+
+
+    <a
+        class="resource"
+        href="https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_all.html"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <span>
+            ⚛️ PhET — Build an Atom
+        </span>
+
+        <span>
+            ↗
+        </span>
+
+    </a>
+
+
+    <a
+        class="resource"
+        href="https://www.youtube.com/watch?v=_INF3_30lUE"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <span>
+            🎥 Structure of Atom Video
+        </span>
+
+        <span>
+            ↗
+        </span>
+
+    </a>
+
+
+</section>
+
+
+</div>
+
+</body>
+
+</html>
+ 
