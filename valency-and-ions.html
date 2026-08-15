@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Valency & Ions - Mishika Jain</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #fff4c2,
+                #ffe2ef,
+                #dff5ff
+            );
+
+            min-height: 100vh;
+        }
+
+
+        /* =====================================
+           MAIN WEBSITE
+        ===================================== */
+
+        .website {
+
+            width: 90%;
+            max-width: 1100px;
+
+            min-height: 680px;
+
+            margin: 35px auto;
+
+            padding: 25px;
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.92),
+                    rgba(255,246,251,0.95)
+                );
+
+            border: 5px solid #4056a1;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 30px rgba(54, 65, 120, 0.25);
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================
+           TOP SECTION
+        ===================================== */
+
+        .top {
+
+            height: 105px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+        }
+
+
+        .title {
+
+            padding: 12px 50px;
+
+            font-size: 32px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            color: #ffffff;
+
+            background: linear-gradient(
+                90deg,
+                #5b5fc7,
+                #9b59b6
+            );
+
+            border: 4px solid #3f438d;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 12px rgba(90,70,160,0.25);
+        }
+
+
+        /* =====================================
+           ATOM
+        ===================================== */
+
+        .atom {
+
+            position: absolute;
+
+            right: 35px;
+
+            top: 5px;
+
+            width: 100px;
+
+            height: 85px;
+        }
+
+
+        .atom::before,
+        .atom::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 90px;
+
+            height: 35px;
+
+            border-radius: 50%;
+
+            top: 20px;
+
+            left: 5px;
+        }
+
+
+        .atom::before {
+
+            border: 5px solid #27a9a5;
+
+            transform: rotate(45deg);
+        }
+
+
+        .atom::after {
+
+            border: 5px solid #ef669d;
+
+            transform: rotate(-45deg);
+        }
+
+
+        .atom-center {
+
+            position: absolute;
+
+            width: 28px;
+
+            height: 28px;
+
+            background: #ffc857;
+
+            border: 4px solid #f28c28;
+
+            border-radius: 50%;
+
+            left: 36px;
+
+            top: 25px;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================
+           THREE COLUMN CONTENT
+        ===================================== */
+
+        .content {
+
+            display: grid;
+
+            grid-template-columns:
+                23% 54% 23%;
+
+            gap: 10px;
+
+            align-items: start;
+        }
+
+
+        /* =====================================
+           QUIZ BOX
+        ===================================== */
+
+        .quiz-box {
+
+            min-height: 250px;
+
+            padding: 20px;
+
+            border: 4px solid #e85d9e;
+
+            border-radius: 18px;
+
+            background: linear-gradient(
+                160deg,
+                #fff0f7,
+                #ffd9eb
+            );
+
+            box-shadow:
+                0 5px 12px rgba(220,80,140,0.18);
+        }
+
+
+        .quiz-box h2 {
+
+            margin-top: 0;
+
+            font-size: 28px;
+
+            color: #d43d82;
+        }
+
+
+        .quiz-box p {
+
+            font-size: 20px;
+
+            line-height: 1.45;
+
+            color: #48344d;
+        }
+
+
+        .link {
+
+            display: inline-block;
+
+            margin-top: 12px;
+
+            padding: 8px 18px;
+
+            background: #e85d9e;
+
+            color: white;
+
+            border-radius: 20px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        .link:hover {
+
+            background: #c72f72;
+
+            transform: scale(1.05);
+        }
+
+
+        /* =====================================
+           CENTER
+        ===================================== */
+
+        .middle {
+
+            padding: 0 15px;
+        }
+
+
+        .description {
+
+            min-height: 185px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #e7f7ff,
+                #d8eaff
+            );
+
+            border: 4px solid #4386c5;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 5px 12px rgba(60,120,180,0.18);
+        }
+
+
+        .description h1 {
+
+            margin: 0 0 15px;
+
+            font-size: 31px;
+
+            color: #315f9c;
+        }
+
+
+        .description p {
+
+            margin: 0;
+
+            font-size: 22px;
+
+            line-height: 1.5;
+
+            color: #303f63;
+        }
+
+
+        /* =====================================
+           CRISS CROSS
+        ===================================== */
+
+        .cross-box {
+
+            min-height: 250px;
+
+            padding: 20px;
+
+            border: 4px solid #8c63c7;
+
+            border-radius: 18px;
+
+            background: linear-gradient(
+                160deg,
+                #f4ecff,
+                #e6d7ff
+            );
+
+            box-shadow:
+                0 5px 12px rgba(120,80,180,0.18);
+        }
+
+
+        .cross-box h2 {
+
+            margin-top: 0;
+
+            font-size: 26px;
+
+            color: #7044a8;
+        }
+
+
+        .cross-box p {
+
+            font-size: 19px;
+
+            line-height: 1.45;
+
+            color: #44365b;
+        }
+
+
+        /* =====================================
+           FUN FACT
+        ===================================== */
+
+        .fun-fact {
+
+            width: 65%;
+
+            min-height: 135px;
+
+            margin: 25px auto;
+
+            padding: 18px 25px;
+
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #fff3a6,
+                #d9f7d8
+            );
+
+            border: 4px solid #75b84b;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 12px rgba(80,150,70,0.18);
+        }
+
+
+        .fun-fact h2 {
+
+            margin: 0 0 10px;
+
+            font-size: 28px;
+
+            color: #4c8c37;
+        }
+
+
+        .fun-fact p {
+
+            margin: 0;
+
+            font-size: 19px;
+
+            line-height: 1.45;
+
+            color: #3f5738;
+        }
+
+
+        /* =====================================
+           VIDEO SECTION
+        ===================================== */
+
+        .video-section {
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 15px;
+
+            background: #fff0d6;
+        }
+
+
+        .video-section h2 {
+
+            margin: 0 0 8px;
+
+            font-size: 25px;
+
+            color: #d87522;
+        }
+
+
+        /* YOUR IRABOT WEBSITE LINK */
+
+        .video-section a {
+
+            display: inline-block;
+
+            padding: 8px 20px;
+
+            background: #f39c36;
+
+            color: white;
+
+            border-radius: 20px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        .video-section a:hover {
+
+            background: #d87815;
+        }
+
+
+        /* =====================================
+           STUDENT NAME
+        ===================================== */
+
+        .student-name {
+
+            position: absolute;
+
+            left: 25px;
+
+            bottom: 20px;
+
+            padding: 10px 25px;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: white;
+
+            background: linear-gradient(
+                90deg,
+                #4056a1,
+                #7044a8
+            );
+
+            border: 3px solid #303d78;
+
+            border-radius: 10px;
+        }
+
+
+        /* =====================================
+           DECORATIVE CORNERS
+        ===================================== */
+
+        .corner {
+
+            position: absolute;
+
+            width: 100px;
+
+            height: 100px;
+
+            pointer-events: none;
+        }
+
+
+        .corner-left {
+
+            top: 0;
+
+            left: 0;
+        }
+
+
+        .corner-right {
+
+            bottom: 0;
+
+            right: 0;
+
+            transform: rotate(180deg);
+        }
+
+
+        .line {
+
+            position: absolute;
+
+            width: 120px;
+
+            height: 5px;
+
+            border-radius: 5px;
+
+            transform: rotate(-45deg);
+        }
+
+
+        .line1 {
+
+            top: 35px;
+
+            left: -20px;
+
+            background: #ffc857;
+        }
+
+
+        .line2 {
+
+            top: 55px;
+
+            left: -10px;
+
+            background: #ef669d;
+        }
+
+
+        .line3 {
+
+            bottom: 35px;
+
+            right: -20px;
+
+            background: #27a9a5;
+        }
+
+
+        .line4 {
+
+            bottom: 55px;
+
+            right: -10px;
+
+            background: #8c63c7;
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 800px) {
+
+            .website {
+
+                width: 95%;
+
+                padding: 15px;
+            }
+
+
+            .top {
+
+                height: 140px;
+            }
+
+
+            .title {
+
+                font-size: 24px;
+
+                padding: 10px 20px;
+            }
+
+
+            .atom {
+
+                right: 5px;
+
+                top: 75px;
+
+                transform: scale(0.65);
+            }
+
+
+            .content {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .middle {
+
+                padding: 15px 0;
+            }
+
+
+            .fun-fact {
+
+                width: 100%;
+            }
+
+
+            .student-name {
+
+                position: relative;
+
+                left: auto;
+
+                bottom: auto;
+
+                display: inline-block;
+
+                margin-top: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<div class="website">
+
+
+    <!-- =========================
+         TOP
+    ========================== -->
+
+    <div class="top">
+
+        <div class="title">
+            VALENCY &amp; IONS
+        </div>
+
+        <div class="atom">
+            <div class="atom-center"></div>
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <div class="content">
+
+
+        <!-- QUIZ -->
+
+        <div class="quiz-box">
+
+            <h2>Quiz</h2>
+
+            <p>
+                Quiz to check
+                understanding
+            </p>
+
+            <a
+                <a class="link"
+href="https://wordwall.net/resource/117192540?wwmethod=link"
+target="_blank">
+
+🔗 Quiz
+
+
+              
+                
+
+       </a>
+
+        </div>
+
+
+
+        <!-- CENTER -->
+
+        <div class="middle">
+
+
+            <div class="description">
+
+                <h1>
+                    Valency &amp; Ions
+                </h1>
+
+                <p>
+                    Valency is the combining
+                    capacity of atoms.
+                </p>
+
+            </div>
+
+
+
+            <!-- FUN FACT -->
+
+            <div class="fun-fact">
+
+                <h2>
+                    💡 Fun Fact
+                </h2>
+
+                <p>
+                    Some ions are brightly colored.
+                    Copper ions can produce blue or
+                    green solutions.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- CRISS CROSS -->
+
+        <div class="cross-box">
+
+            <h2>
+                Criss-cross<br>
+                method:
+            </h2>
+
+            <p>
+                A simple method used to
+                write chemical formulas
+                using ion valencies.
+            </p>
+
+            <a
+               <a class="link"
+   href="YOUR_URL_HERE"
+   target="_blank">
+
+   🔗 Criss-Cross Image
+
+</a>
+         
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         VIDEO / IRABOT
+    ========================== -->
+
+    <div class="video-section">
+
+        <h2>
+            🎥 Video on Valency
+        </h2>
+
+        <!-- PUT YOUR LINK HERE -->
+
+        <a
+           <a href="https://youtu.be/lVSF2lP4oBA?si=x0SfxcGaVAYCAcmR"
+   target="_blank">
+
+   ▶️ Visit VIDEO
+
+</a>
+    </div>
+
+
+
+    <!-- =========================
+         STUDENT NAME
+    ========================== -->
+
+    <div class="student-name">
+
+        MISHIKA JAIN
+
+    </div>
+
+
+
+    <!-- =========================
+         DECORATIVE CORNERS
+    ========================== -->
+
+    <div class="corner corner-left">
+
+        <div class="line line1"></div>
+
+        <div class="line line2"></div>
+
+    </div>
+
+
+    <div class="corner corner-right">
+
+        <div class="line line3"></div>
+
+        <div class="line line4"></div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
