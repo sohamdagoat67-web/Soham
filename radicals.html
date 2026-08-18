@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Radicals | Science Hub</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+
+        font-family: "Trebuchet MS", Arial, sans-serif;
+
+        background:
+            radial-gradient(
+                circle at 15% 20%,
+                #241044 0%,
+                transparent 35%
+            ),
+            radial-gradient(
+                circle at 85% 75%,
+                #092d4f 0%,
+                transparent 40%
+            ),
+            linear-gradient(
+                135deg,
+                #080612,
+                #0d1024 45%,
+                #071827
+            );
+
+        color: #eeeaff;
+    }
+
+
+    .page {
+        min-height: 100vh;
+
+        padding: 28px 35px 50px;
+    }
+
+
+    /* ================================
+       HEADER
+    ================================= */
+
+    .header {
+        max-width: 1350px;
+
+        margin: auto auto 35px;
+
+        display: grid;
+
+        grid-template-columns:
+            220px
+            1fr
+            220px;
+
+        align-items: center;
+    }
+
+
+    .stage {
+        margin: 0;
+
+        font-size: 2.4rem;
+        font-weight: 900;
+
+        color: #8b7cff;
+
+        letter-spacing: 2px;
+    }
+
+.title {
+    margin: 0;
+
+    text-align: center;
+
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c5cff,
+            #b56cff,
+            #4ca7ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 0 25px rgba(125, 92, 255, 0.25);
+}    }
+
+
+    .author {
+        text-align: right;
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+
+        color: #9b9abb;
+    }
+/* ================================
+   ATE vs ITE
+================================ */
+
+.twin-section {
+    max-width: 1350px;
+    margin: 0 auto 40px;
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading > span {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #806cff;
+}
+
+.section-heading h2 {
+    margin: 8px 0;
+
+    font-size: 2.5rem;
+
+    color: #f3efff;
+}
+
+.section-heading p {
+    color: #9693aa;
+    font-size: 1rem;
+}
+
+
+.twin-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+
+.twin-card {
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27, 23, 58, 0.88),
+            rgba(10, 30, 52, 0.88)
+        );
+
+    border: 1px solid rgba(126, 92, 255, 0.28);
+
+    border-radius: 20px;
+
+    transition: 0.25s ease;
+}
+
+
+.twin-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #806cff;
+
+    box-shadow:
+        0 0 25px rgba(112, 82, 255, 0.22);
+}
+
+
+.twin-names {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    color: #aaa5c7;
+}
+
+
+.formula-row {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    margin: 25px 0;
+}
+
+
+.formula-row strong {
+    font-size: 2rem;
+
+    color: #eeeaff;
+}
+
+
+.formula-row span {
+    font-size: 1.5rem;
+
+    color: #806cff;
+}
+
+
+.oxygen-note {
+    text-align: center;
+
+    padding-top: 12px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    font-size: 0.85rem;
+
+    color: #85829a;
+}
+/* ================================
+   RADICAL EXAMPLES
+================================ */
+
+.radical-examples {
+    max-width: 1350px;
+    margin: 0 auto 40px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.radical-chip {
+    padding: 24px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(47, 35, 83, 0.8),
+            rgba(12, 39, 65, 0.8)
+        );
+
+    border: 1px solid rgba(126, 92, 255, 0.35);
+
+    border-radius: 18px;
+
+    transition: 0.25s ease;
+}
+
+.radical-chip:hover {
+    transform: translateY(-5px);
+
+    border-color: #8c6cff;
+
+    box-shadow:
+        0 0 22px rgba(112, 82, 255, 0.3);
+}
+
+.radical-chip strong {
+    display: block;
+
+    font-size: 1.8rem;
+
+    color: #eeeaff;
+}
+
+.radical-chip small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #9290a8;
+
+    font-size: 0.9rem;
+}
+.hero {
+    max-width: 1350px;
+    margin: 0 auto 35px;
+
+    padding: 38px;
+
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 35px;
+    align-items: center;
+
+    background: rgba(16, 18, 42, 0.72);
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 0 35px rgba(91, 64, 180, 0.15);
+
+    backdrop-filter: blur(14px);
+}
+
+.hero-tag {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #7d8cff;
+}
+
+.hero h2 {
+    margin: 12px 0;
+
+    font-size: 3rem;
+    line-height: 1.1;
+
+    color: #f4f1ff;
+}
+
+.hero h2 span {
+    background:
+        linear-gradient(
+            90deg,
+            #9b6cff,
+            #4da6ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero p {
+    max-width: 700px;
+
+    font-size: 1.1rem;
+    line-height: 1.7;
+
+    color: #b9b6ca;
+}
+
+.hero-note {
+    padding-left: 15px;
+
+    border-left: 3px solid #805cff;
+
+    color: #d2cdfc !important;
+}
+.definition-card {
+    max-width: 1350px;
+    margin: 0 auto 35px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22, 18, 50, 0.92),
+            rgba(8, 31, 52, 0.92)
+        );
+
+    border: 1px solid rgba(126, 92, 255, 0.35);
+    border-radius: 26px;
+
+    box-shadow:
+        0 0 35px rgba(100, 70, 220, 0.12);
+}
+
+.definition-label {
+    color: #806cff;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.definition-card h2 {
+    margin: 10px 0 15px;
+
+    font-size: 2.5rem;
+
+    color: #f3efff;
+}
+
+.definition-card p {
+    max-width: 900px;
+
+    font-size: 1.15rem;
+    line-height: 1.7;
+
+    color: #bbb7cd;
+}
+
+.definition-highlight {
+    margin-top: 20px;
+    padding: 15px 18px;
+
+    border-left: 3px solid #806cff;
+
+    color: #d4ceff;
+}
+.radical-tabs {
+    max-width: 1350px;
+    margin: 0 auto 35px;
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.radical-tabs a {
+    padding: 12px 22px;
+
+    text-decoration: none;
+
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+
+    color: #aaa6c2;
+
+    background: rgba(20, 22, 48, 0.75);
+
+    border: 1px solid rgba(126, 92, 255, 0.25);
+
+    border-radius: 12px;
+
+    transition: 0.25s ease;
+}
+
+.radical-tabs a:hover {
+    color: white;
+
+    background: rgba(87, 61, 170, 0.35);
+
+    border-color: #806cff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 18px rgba(128, 108, 255, 0.2);
+}
+.simulation {
+    max-width: 1350px;
+    margin: 0 auto 45px;
+}
+
+.simulator-box {
+    padding: 35px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(70, 42, 130, 0.35),
+            rgba(8, 20, 35, 0.9)
+        );
+
+    border: 1px solid rgba(126, 92, 255, 0.35);
+
+    border-radius: 25px;
+}
+
+#radicalSelect {
+    padding: 12px 18px;
+
+    background: #11152b;
+    color: #eeeaff;
+
+    border: 1px solid #6252c9;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+}
+
+.formula-display {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 45px;
+
+    margin: 35px 0;
+}
+
+.formula-display div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formula-display small {
+    color: #817ca0;
+
+    letter-spacing: 2px;
+}
+
+.formula-display strong {
+    font-size: 3rem;
+
+    color: #f0ecff;
+}
+
+.formula-display > span {
+    font-size: 2rem;
+
+    color: #806cff;
+}
+
+.simulator-box button {
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #654cff,
+        #398fe8
+    );
+
+    color: white;
+
+    font-family: inherit;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#simulationResult {
+    margin-top: 20px;
+
+    color: #aaa6bd;
+} 
+</style>
+
+</head>
+
+<body>
+<div class="page">
+
+    <header class="header">
+
+        <h2 class="stage">
+            STAGE 2
+        </h2>
+
+        <h1 class="title">
+            🧪 RADICALS
+        </h1>
+
+        <div class="author">
+           Grade 7<br>
+            Chemistry
+        </div>
+       <section class="simulation" id="simulation">
+
+    <div class="section-heading">
+
+        <span>INTERACTIVE LAB</span>
+
+        <h2>Radical Twin Simulator</h2>
+
+        <p>
+            See how the oxygen count changes between
+            the -ate and -ite forms.
+        </p>
+
+    </div>
+
+
+    <div class="simulator-box">
+
+        <select id="radicalSelect">
+
+            <option value="carbonate">
+                Carbonate → Carbonite
+            </option>
+
+            <option value="phosphate">
+                Phosphate → Phosphite
+            </option>
+
+            <option value="sulphate">
+                Sulphate → Sulphite
+            </option>
+
+            <option value="nitrate">
+                Nitrate → Nitrite
+            </option>
+
+        </select>
+
+
+        <div class="formula-display">
+
+            <div>
+                <small>-ATE</small>
+                <strong id="ateFormula">CO₃²⁻</strong>
+            </div>
+
+            <span>→</span>
+
+            <div>
+                <small>-ITE</small>
+                <strong id="iteFormula">CO₂²⁻</strong>
+            </div>
+
+        </div>
+
+
+        <button onclick="runSimulation()">
+            ⚡ RUN SIMULATION
+        </button>
+
+
+        <p id="simulationResult">
+            Select a radical and run the simulation.
+        </p>
+
+    </div>
+
+</section>
+    </header>
+<nav class="radical-tabs">
+
+    <a href="https://www.youtube.com/watch?v=yfGebwCSUnQ">LEARN</a>
+
+    <a href="https://wordwall.net/resource/117577890/rdi">Fun Game on WORDWALL.net</a>
+
+    <a href="radical-reckoning">
+        RADICAL RECKONING 🎮
+    </a>
+
+</nav>
+    <section class="definition-card">
+
+    <div class="definition-label">
+        🧪 CORE CONCEPT
+    </div>
+
+    <h2>What is a Radical?</h2>
+
+    <p>
+        A radical is a group of atoms that carries a charge
+        and behaves as a single unit in a chemical compound.
+    </p>
+
+    <div class="definition-highlight">
+        ⚡ Think of a radical as a group of atoms travelling
+        together with one overall charge.
+    </div>
+<hr size="15">
+
+</section>
+    <div class="radical-chip">
+        <strong>CO₃²⁻</strong>
+        <small>Carbonate</small>
+    </div>
+
+    <div class="radical-chip">
+        <strong>PO₄³⁻</strong>
+        <small>Phosphate</small>
+    </div>
+
+    <div class="radical-chip">
+        <strong>SO₄²⁻</strong>
+        <small>Sulphate</small>
+    </div>
+
+    <div class="radical-chip">
+        <strong>NO₃⁻</strong>
+        <small>Nitrate</small>
+    </div>
+
+</div>
+    
+<script>
+
+const radicals = {
+
+    carbonate: {
+        ate: "CO₃²⁻",
+        ite: "CO₂²⁻",
+        name: "Carbonate / Carbonite"
+    },
+
+    phosphate: {
+        ate: "PO₄³⁻",
+        ite: "PO₃³⁻",
+        name: "Phosphate / Phosphite"
+    },
+
+    sulphate: {
+        ate: "SO₄²⁻",
+        ite: "SO₃²⁻",
+        name: "Sulphate / Sulphite"
+    },
+
+    nitrate: {
+        ate: "NO₃⁻",
+        ite: "NO₂⁻",
+        name: "Nitrate / Nitrite"
+    }
+
+};
+
+
+document.getElementById("radicalSelect")
+    .addEventListener("change", function () {
+
+        const radical = radicals[this.value];
+
+        document.getElementById("ateFormula")
+            .textContent = radical.ate;
+
+        document.getElementById("iteFormula")
+            .textContent = radical.ite;
+
+        document.getElementById("simulationResult")
+            .textContent =
+            "Ready to simulate " + radical.name + ".";
+
+    });
+
+
+function runSimulation() {
+
+    const selected =
+        document.getElementById("radicalSelect").value;
+
+    const radical = radicals[selected];
+
+    document.getElementById("simulationResult")
+        .textContent =
+        "⚡ One oxygen atom is removed: "
+        + radical.ate
+        + " → "
+        + radical.ite;
+
+}
+
+</script>
+</body>
+
+</html>
