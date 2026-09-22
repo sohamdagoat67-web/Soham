@@ -8,8 +8,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Science Hub</title>
-
+ 
+<link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Chewy&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 <style>
+
+.topic-title {
+font-family: "Asimovian", sans-serif;
+    font-weight: 400;
+}
+
+.stage {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+}
+.topic-description {
+    font-family: "Chewy", cursive;
+
+    position: relative;
+    z-index: 2;
+
+    font-size: 28px;
+    
+    margin: 0 0 22px;
+
+    max-width: 520px;
+
+    color: #fff8e7;
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.65;
+
+    text-shadow:
+        0 2px 6px rgba(70,0,0,0.35);
+
+    transform: translateZ(25px);
+}
 
 /* =====================================================
    RESET
@@ -31,39 +65,16 @@ body {
     min-height: 100vh;
 
     font-family:
-        "Trebuchet MS",
-        Arial,
+        "Arial",
         sans-serif;
 
     color: #24130b;
 
     background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(255, 255, 180, 0.85),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(255, 100, 30, 0.8),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(255, 210, 30, 0.85),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            135deg,
-            #8b0000 0%,
-            #d62828 25%,
-            #f77f00 55%,
-            #fcbf49 78%,
-            #ffe66d 100%
-        );
+                radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.35), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.28), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.20), transparent 35%),
+        linear-gradient(135deg, #080B1A, #111936);
 
     background-attachment: fixed;
 }
@@ -115,11 +126,10 @@ body {
 
 .title {
 
-    margin: 0;
+    margin:0;
 
     font-family:
-        Impact,
-        "Arial Black",
+        "Silkscreen",
         sans-serif;
 
     font-size: 4rem;
@@ -130,10 +140,8 @@ body {
 
     text-shadow:
 
-        0 4px 0 #8b0000,
-
-        0 8px 20px
-        rgba(70, 0, 0, 0.35);
+            0 0 10px rgba(56, 189, 248, 0.7),
+        0 0 25px rgba(139, 92, 246, 0.5);
 
 }
 
@@ -259,41 +267,53 @@ body {
 
     color: inherit;
 
-    border-radius: 30px;
+    border-radius: 28px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.38),
-            rgba(255,255,255,0.14)
-        );
+        rgba(255, 255, 255, 0.10);
+
 
     border:
         1px solid
-        rgba(255,255,255,0.65);
+        rgba(255,255,255,0.18);
 
     box-shadow:
 
-        0 20px 45px
-        rgba(80, 0, 0, 0.25),
+         0 12px 35px rgba(0, 0, 0, 0.25),
 
         inset 0 1px 0
         rgba(255,255,255,0.5);
 
     backdrop-filter:
-        blur(18px);
+        blur(14px);
 
     -webkit-backdrop-filter:
-        blur(18px);
+        blur(14px);
 
     transform-style: preserve-3d;
 
     transition:
-        transform 0.18s ease,
-        box-shadow 0.25s ease;
+               transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
 
     will-change: transform;
 }
+.topic-card:hover {
+    box-shadow: 0 18px 45px rgba(37, 99, 235, 0.25);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+ .topic-card img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 18px;
+    display: block;
+    margin: 0 auto 20px;
+}
+ 
 
 
 /* =====================================================
@@ -402,36 +422,6 @@ body {
 /* =====================================================
    TITLE
 ===================================================== */
-
-.topic-title {
-
-    position: relative;
-
-    z-index: 2;
-
-    margin:
-        0
-        0
-        13px;
-
-    font-family:
-        "Arial Black",
-        Impact,
-        sans-serif;
-
-    font-size: 2rem;
-
-    letter-spacing: 1px;
-
-    color: #fffaf0;
-
-    text-shadow:
-        0 3px 8px
-        rgba(90,0,0,0.45);
-
-    transform:
-        translateZ(35px);
-}
 
 
 /* =====================================================
@@ -917,11 +907,11 @@ body {
 
 <section class="intro">
 
-    <h2>
+    <h2 class="fun-text">
         Explore • Experiment • Discover
     </h2>
 
-    <p>
+    <p class="fun-text">
         Welcome to your interactive science learning hub!
         Choose a topic and dive into simulations,
         concepts, experiments and challenges.
@@ -1149,6 +1139,7 @@ body {
 </main>
 
 
+
 <!-- =====================================================
      FUTURE CONTENT
 ===================================================== -->
@@ -1163,7 +1154,7 @@ body {
 <!-- =====================================================
      FOOTER
 ===================================================== -->
-
+0
 <footer class="footer">
 
     🧪 Science Hub • Learn Science by Exploring
