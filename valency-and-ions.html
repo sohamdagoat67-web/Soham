@@ -6,46 +6,55 @@
 
     <title>Valency & Ions - Mishika Jain</title>
 
-    <a href="https://www.chewy.com/" target="_blank" rel="noopener noreferrer">
-    Chewy
-</a>
-    
+    <!-- Chewy Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
 
         * {
             box-sizing: border-box;
         }
 
+
+        /* =====================================
+           BODY
+        ===================================== */
+
         body {
             margin: 0;
             padding: 0;
-            font-family: "Chewy", Arial, sans-serif;
 
-            radial-gradient(
-            circle at 15% 20%,
-            rgba(163, 230, 53, 0.30),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 15%,
-            rgba(20, 184, 166, 0.28),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(250, 204, 21, 0.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #050807,
-            #0b1714 50%,
-            #101407
-        );
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(163, 230, 53, 0.30),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(20, 184, 166, 0.28),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(250, 204, 21, 0.18),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #050807,
+                    #0b1714 50%,
+                    #101407
+                );
 
             min-height: 100vh;
-            color: #f7fee7;
 
+            color: #f7fee7;
         }
 
 
@@ -66,19 +75,18 @@
 
             position: relative;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,0.92),
-                    rgba(255,246,251,0.95)
-                );
+            background: rgba(255, 255, 255, 0.07);
 
-            border: 5px solid #4056a1;
+            border: 1px solid rgba(163, 230, 53, 0.25);
 
-            border-radius: 18px;
+            border-radius: 28px;
 
             box-shadow:
-                0 10px 30px rgba(54, 65, 120, 0.25);
+                0 20px 50px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.12);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
 
             overflow: hidden;
         }
@@ -87,40 +95,80 @@
         /* =====================================
            TOP SECTION
         ===================================== */
-.top {
-    position: relative;
-    padding: 35px 25px;
-    text-align: center;
 
-    background: rgba(255, 255, 255, 0.08);
+        .top {
 
-    border: 1px solid rgba(163, 230, 53, 0.35);
-    border-radius: 24px;
+            position: relative;
 
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            padding: 30px 25px;
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+            text-align: center;
 
-    overflow: hidden;
-}
+            background: rgba(255, 255, 255, 0.08);
 
-.title {
+            border: 1px solid rgba(163, 230, 53, 0.35);
 
-    margin: 5px 0 8px;
+            border-radius: 24px;
 
-    font-family: "Chewy", Arial, sans-serif;
-    font-size: clamp(3rem, 7vw, 5.5rem);
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255,255,255,0.12);
 
-    color: #A3E635;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
 
-    text-shadow:
-        0 0 10px rgba(163, 230, 53, 0.7),
-        0 0 30px rgba(163, 230, 53, 0.35);
+            overflow: hidden;
+        }
 
-    letter-spacing: 2px;
+
+        /* =====================================
+           STAGE BADGE
+        ===================================== */
+
+        .lab-badge {
+
+            display: inline-block;
+
+            padding: 7px 14px;
+
+            margin-bottom: 8px;
+
+            border: 1px solid rgba(250, 204, 21, 0.45);
+
+            border-radius: 999px;
+
+            background: rgba(250, 204, 21, 0.10);
+
+            color: #FACC15;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 0.75rem;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        /* =====================================
+           TITLE
+        ===================================== */
+
+        .title {
+
+            margin: 5px 0 8px;
+
+            font-family: "Chewy", Arial, sans-serif;
+
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+
+            color: #F8FAFC;
+
+            text-shadow:
+                0 0 12px rgba(20, 184, 166, 0.35);
+
+            letter-spacing: 1px;
         }
 
 
@@ -163,17 +211,23 @@
 
         .atom::before {
 
-            border: 5px solid #27a9a5;
+            border: 5px solid #14B8A6;
 
             transform: rotate(45deg);
+
+            box-shadow:
+                0 0 12px rgba(20,184,166,0.5);
         }
 
 
         .atom::after {
 
-            border: 5px solid #ef669d;
+            border: 5px solid #A3E635;
 
             transform: rotate(-45deg);
+
+            box-shadow:
+                0 0 12px rgba(163,230,53,0.4);
         }
 
 
@@ -185,9 +239,9 @@
 
             height: 28px;
 
-            background: #ffc857;
+            background: #FACC15;
 
-            border: 4px solid #f28c28;
+            border: 4px solid #14B8A6;
 
             border-radius: 50%;
 
@@ -196,6 +250,9 @@
             top: 25px;
 
             z-index: 2;
+
+            box-shadow:
+                0 0 18px rgba(250,204,21,0.6);
         }
 
 
@@ -213,6 +270,8 @@
             gap: 10px;
 
             align-items: start;
+
+            margin-top: 20px;
         }
 
 
@@ -222,49 +281,71 @@
 
         .quiz-box {
 
-    padding: 22px;
+            padding: 22px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(20, 184, 166, 0.14),
-            rgba(250, 204, 21, 0.08)
-        );
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20, 184, 166, 0.14),
+                    rgba(250, 204, 21, 0.08)
+                );
 
-    border: 1px solid rgba(20, 184, 166, 0.35);
-    border-radius: 22px;
+            border: 1px solid rgba(20, 184, 166, 0.35);
 
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255,255,255,0.1);
+            border-radius: 22px;
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
 
-    text-align: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            text-align: center;
+
+            transition: 0.25s ease;
+        }
+
+
+        .quiz-box:hover {
+
+            transform: translateY(-4px);
+
+            border-color: rgba(20, 184, 166, 0.6);
+
+            box-shadow:
+                0 18px 35px rgba(0,0,0,0.35),
+                0 0 20px rgba(20,184,166,0.15);
         }
 
 
         .quiz-box h2 {
 
-    color: #14B8A6;
+            color: #F8FAFC;
 
-    font-family: "Chewy", Arial, sans-serif;
+            font-family: "Chewy", Arial, sans-serif;
 
-    font-size: 1.8rem;
+            font-size: 1.7rem;
 
-    text-shadow:
-        0 0 12px rgba(20, 184, 166, 0.5);
+            text-shadow: none;
+
+            margin-top: 0;
         }
 
 
         .quiz-box p {
 
-    color: #ccfbf1;
-    line-height: 1.5;
-    font-family: Arial, sans-serif;
+            color: #ccfbf1;
+
+            line-height: 1.5;
+
+            font-family: Arial, sans-serif;
         }
 
+
+        /* =====================================
+           BUTTON
+        ===================================== */
 
         .link {
 
@@ -272,29 +353,40 @@
 
             margin-top: 12px;
 
-            padding: 8px 18px;
+            padding: 9px 16px;
 
-            background: #e85d9e;
+            background:
+                linear-gradient(
+                    135deg,
+                    #14B8A6,
+                    #A3E635
+                );
 
-            color: white;
+            color: #06100d;
 
-            border-radius: 20px;
+            border-radius: 14px;
 
-            font-size: 17px;
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
 
             font-weight: bold;
 
             text-decoration: none;
 
-            transition: 0.3s;
+            transition: 0.25s ease;
+
+            box-shadow:
+                0 0 15px rgba(20,184,166,0.25);
         }
 
 
         .link:hover {
 
-            background: #c72f72;
+            transform: translateY(-3px) scale(1.03);
 
-            transform: scale(1.05);
+            box-shadow:
+                0 0 25px rgba(163,230,53,0.45);
         }
 
 
@@ -316,18 +408,23 @@
 
             text-align: center;
 
-            background: linear-gradient(
-                135deg,
-                #e7f7ff,
-                #d8eaff
-            );
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.10),
+                    rgba(20,184,166,0.08)
+                );
 
-            border: 4px solid #4386c5;
+            border: 1px solid rgba(20,184,166,0.3);
 
             border-radius: 25px;
 
             box-shadow:
-                0 5px 12px rgba(60,120,180,0.18);
+                0 12px 30px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
 
@@ -335,9 +432,14 @@
 
             margin: 0 0 15px;
 
-            font-size: 31px;
+            font-family: "Chewy", Arial, sans-serif;
 
-            color: #315f9c;
+            font-size: 2rem;
+
+            color: #99F6E4;
+
+            text-shadow:
+                0 0 10px rgba(20,184,166,0.25);
         }
 
 
@@ -345,11 +447,13 @@
 
             margin: 0;
 
-            font-size: 22px;
+            font-family: Arial, sans-serif;
+
+            font-size: 18px;
 
             line-height: 1.5;
 
-            color: #303f63;
+            color: #E2E8F0;
         }
 
 
@@ -359,44 +463,65 @@
 
         .cross-box {
 
-    padding: 22px;
+            padding: 22px;
 
-    background: linear-gradient(
-        145deg,
-        rgba(163, 230, 53, 0.14),
-        rgba(20, 184, 166, 0.08)
-    );
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(163, 230, 53, 0.14),
+                    rgba(20, 184, 166, 0.08)
+                );
 
-    border: 1px solid rgba(163, 230, 53, 0.35);
-    border-radius: 22px;
+            border: 1px solid rgba(163, 230, 53, 0.35);
 
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255,255,255,0.1);
+            border-radius: 22px;
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
 
-    text-align: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            text-align: center;
+
+            transition: 0.25s ease;
+        }
+
+
+        .cross-box:hover {
+
+            transform: translateY(-4px);
+
+            border-color: rgba(163,230,53,0.6);
+
+            box-shadow:
+                0 18px 35px rgba(0,0,0,0.35),
+                0 0 20px rgba(163,230,53,0.12);
         }
 
 
         .cross-box h2 {
 
-    color: #A3E635;
-    font-family: "Chewy", Arial, sans-serif;
-    font-size: 1.8rem;
+            color: #F8FAFC;
 
-    text-shadow:
-        0 0 12px rgba(163, 230, 53, 0.5);
+            font-family: "Chewy", Arial, sans-serif;
+
+            font-size: 1.7rem;
+
+            text-shadow: none;
+
+            margin-top: 0;
         }
 
 
         .cross-box p {
 
-    color: #d9f99d;
-    line-height: 1.6;
-    font-family: Arial, sans-serif;
+            color: #D9F99D;
+
+            line-height: 1.6;
+
+            font-family: Arial, sans-serif;
         }
 
 
@@ -416,18 +541,23 @@
 
             text-align: center;
 
-            background: linear-gradient(
-                135deg,
-                #fff3a6,
-                #d9f7d8
-            );
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(250,204,21,0.12),
+                    rgba(163,230,53,0.08)
+                );
 
-            border: 4px solid #75b84b;
+            border: 1px solid rgba(250,204,21,0.35);
 
-            border-radius: 15px;
+            border-radius: 20px;
 
             box-shadow:
-                0 5px 12px rgba(80,150,70,0.18);
+                0 12px 30px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
 
@@ -435,9 +565,11 @@
 
             margin: 0 0 10px;
 
-            font-size: 28px;
+            font-family: "Chewy", Arial, sans-serif;
 
-            color: #4c8c37;
+            font-size: 1.7rem;
+
+            color: #FDE68A;
         }
 
 
@@ -445,11 +577,13 @@
 
             margin: 0;
 
-            font-size: 19px;
+            font-family: Arial, sans-serif;
+
+            font-size: 17px;
 
             line-height: 1.45;
 
-            color: #3f5738;
+            color: #E2E8F0;
         }
 
 
@@ -461,51 +595,69 @@
 
             text-align: center;
 
-            margin-top: 15px;
+            margin-top: 20px;
 
-            padding: 15px;
+            padding: 20px;
 
-            border-radius: 15px;
+            border-radius: 20px;
 
-            background: #fff0d6;
+            background:
+                rgba(255,255,255,0.06);
+
+            border: 1px solid rgba(20,184,166,0.25);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
 
         .video-section h2 {
 
-            margin: 0 0 8px;
+            margin: 0 0 12px;
 
-            font-size: 25px;
+            font-family: "Chewy", Arial, sans-serif;
 
-            color: #d87522;
+            font-size: 1.6rem;
+
+            color: #99F6E4;
         }
 
-
-        /* YOUR IRABOT WEBSITE LINK */
 
         .video-section a {
 
             display: inline-block;
 
-            padding: 8px 20px;
+            padding: 9px 20px;
 
-            background: #f39c36;
+            background:
+                linear-gradient(
+                    135deg,
+                    #14B8A6,
+                    #A3E635
+                );
 
-            color: white;
+            color: #06100d;
 
-            border-radius: 20px;
+            border-radius: 14px;
 
-            font-size: 18px;
+            font-family: Arial, sans-serif;
+
+            font-size: 16px;
 
             font-weight: bold;
 
             text-decoration: none;
+
+            transition: 0.25s ease;
         }
 
 
         .video-section a:hover {
 
-            background: #d87815;
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 20px rgba(163,230,53,0.4);
         }
 
 
@@ -521,23 +673,29 @@
 
             bottom: 20px;
 
-            padding: 10px 25px;
+            padding: 9px 20px;
 
-            font-size: 22px;
+            font-family: Arial, sans-serif;
+
+            font-size: 16px;
 
             font-weight: bold;
 
-            color: white;
+            color: #06100d;
 
-            background: linear-gradient(
-                90deg,
-                #4056a1,
-                #7044a8
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    #A3E635,
+                    #14B8A6
+                );
 
-            border: 3px solid #303d78;
+            border: none;
 
-            border-radius: 10px;
+            border-radius: 999px;
+
+            box-shadow:
+                0 0 15px rgba(20,184,166,0.25);
         }
 
 
@@ -595,7 +753,7 @@
 
             left: -20px;
 
-            background: #ffc857;
+            background: #FACC15;
         }
 
 
@@ -605,7 +763,7 @@
 
             left: -10px;
 
-            background: #ef669d;
+            background: #14B8A6;
         }
 
 
@@ -615,7 +773,7 @@
 
             right: -20px;
 
-            background: #27a9a5;
+            background: #A3E635;
         }
 
 
@@ -625,7 +783,7 @@
 
             right: -10px;
 
-            background: #8c63c7;
+            background: #14B8A6;
         }
 
 
@@ -640,18 +798,22 @@
                 width: 95%;
 
                 padding: 15px;
+
+                margin: 20px auto;
             }
 
 
             .top {
 
-                height: 140px;
+                padding: 25px 15px;
+
+                min-height: 130px;
             }
 
 
             .title {
 
-                font-size: 24px;
+                font-size: 2.3rem;
 
                 padding: 10px 20px;
             }
@@ -659,17 +821,18 @@
 
             .atom {
 
-                right: 5px;
+                right: 0;
 
-                top: 75px;
+                top: 65px;
 
-                transform: scale(0.65);
+                transform: scale(0.6);
             }
 
 
             .content {
 
                 grid-template-columns: 1fr;
+
             }
 
 
@@ -697,26 +860,21 @@
 
                 margin-top: 30px;
             }
+
+
+            .description h1 {
+
+                font-size: 1.8rem;
+            }
+
+
+            .quiz-box h2,
+            .cross-box h2 {
+
+                font-size: 1.6rem;
+            }
         }
 
-.lab-badge {
-    display: inline-block;
-
-    padding: 7px 14px;
-    margin-bottom: 8px;
-
-    border: 1px solid rgba(250, 204, 21, 0.45);
-    border-radius: 999px;
-
-    background: rgba(250, 204, 21, 0.10);
-
-    color: #FACC15;
-    font-family: Arial, sans-serif;
-    font-size: 0.75rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-}
-        
     </style>
 </head>
 
@@ -733,7 +891,9 @@
 
     <div class="top">
 
-        <div class="lab-badge">⚡ STAGE 2 • CHEMISTRY</div>
+        <div class="lab-badge">
+            ⚡ STAGE 2 • CHEMISTRY
+        </div>
 
         <div class="title">
             VALENCY &amp; IONS
@@ -766,17 +926,13 @@
             </p>
 
             <a
-                <a class="link"
-href="https://wordwall.net/resource/117192540?wwmethod=link"
-target="_blank">
-
-🔗 Quiz
-
-
-              
-                
-
-       </a>
+                class="link"
+                href="https://wordwall.net/resource/117192540?wwmethod=link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🔗 Quiz
+            </a>
 
         </div>
 
@@ -785,7 +941,6 @@ target="_blank">
         <!-- CENTER -->
 
         <div class="middle">
-
 
             <div class="description">
 
@@ -799,7 +954,6 @@ target="_blank">
                 </p>
 
             </div>
-
 
 
             <!-- FUN FACT -->
@@ -817,7 +971,6 @@ target="_blank">
                 </p>
 
             </div>
-
 
         </div>
 
@@ -837,14 +990,15 @@ target="_blank">
                 write chemical formulas
                 using ion valencies.
             </p>
-               <a class="link"
-   href="https://bramblechemistry.weebly.com/1b5-ionic-compounds.html"
-   target="_blank">
 
-   🔗 Criss-Cross Image
-
-</a>
-         
+            <a
+                class="link"
+                href="https://bramblechemistry.weebly.com/1b5-ionic-compounds.html"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🔗 Criss-Cross Image
+            </a>
 
         </div>
 
@@ -853,7 +1007,7 @@ target="_blank">
 
 
     <!-- =========================
-         VIDEO / IRABOT
+         VIDEO
     ========================== -->
 
     <div class="video-section">
@@ -862,15 +1016,14 @@ target="_blank">
             🎥 Video on Valency
         </h2>
 
-        <!-- PUT YOUR LINK HERE -->
-
         <a
-           <a href="https://youtu.be/lVSF2lP4oBA?si=x0SfxcGaVAYCAcmR"
-   target="_blank">
+            href="https://youtu.be/lVSF2lP4oBA?si=x0SfxcGaVAYCAcmR"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            ▶️ Visit VIDEO
+        </a>
 
-   ▶️ Visit VIDEO
-
-</a>
     </div>
 
 
