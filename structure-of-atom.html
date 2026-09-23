@@ -18,22 +18,37 @@
 }
 
 body {
-    margin: 0;
+       margin: 0;
     min-height: 100vh;
 
     font-family: Arial, sans-serif;
 
-    /* LIGHTER BACKGROUND */
     background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(239, 68, 68, 0.35),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(250, 204, 21, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(249, 115, 22, 0.30),
+            transparent 35%
+        ),
         linear-gradient(
             135deg,
-            #e4fbdc 0%,
-            #d5f4ed 28%,
-            #ccecf8 60%,
-            #bcd4f5 100%
+            #160607,
+            #3b0a0a 45%,
+            #1a0b03
         );
 
-    color: #172554;
+    background-attachment: fixed;
+
+    color: #fff7ed;
 }
 
 
@@ -166,24 +181,21 @@ body {
 ===================================================== */
 
 .panel {
-
     background:
-        rgba(255,255,255,0.45);
+        rgba(255, 255, 255, 0.09);
 
     border:
-        1px solid rgba(255,255,255,0.75);
+        1px solid rgba(255, 255, 255, 0.18);
 
     border-radius: 25px;
 
     box-shadow:
-        0 12px 35px
-        rgba(62,91,130,0.18);
+        0 12px 35px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
 
-    backdrop-filter:
-        blur(15px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
-    -webkit-backdrop-filter:
-        blur(15px);
 }
 
 
@@ -259,11 +271,11 @@ body {
 
     background:
         radial-gradient(
-            circle at center,
-            #e9faff 0%,
-            #d7ecfb 45%,
-            #bcd4ee 100%
-        );
+        circle at center,
+        #451a03 0%,
+        #2a0b0b 45%,
+        #120505 100%
+    );
 
     border:
         1px solid
@@ -310,13 +322,12 @@ body {
 
     border-radius: 50%;
 
-    border:
-        4px solid
-        rgba(79,105,218,0.65);
+border:
+    3px solid rgba(249, 115, 22, 0.65);
 
-    box-shadow:
-        0 0 10px
-        rgba(100,100,220,0.18);
+box-shadow:
+    0 0 12px rgba(249, 115, 22, 0.35),
+    0 0 25px rgba(239, 68, 68, 0.15);
 }
 
 
@@ -379,24 +390,22 @@ body {
     border-radius: 50%;
 
     background:
-        radial-gradient(
-            circle at 30% 25%,
-            #ffffff,
-            #efc8ff 16%,
-            #a64fd2 55%,
-            #632595 100%
-        );
-
-    box-shadow:
-        0 0 30px
-        rgba(170,75,230,0.55),
-
-        inset -12px -12px 20px
-        rgba(50,0,80,0.2);
-
-    z-index: 5;
+    radial-gradient(
+        circle at 30% 25%,
+        #fff7ad 0%,
+        #facc15 18%,
+        #f97316 55%,
+        #b91c1c 100%
+    );
+box-shadow:
+    0 0 25px rgba(249, 115, 22, 0.8),
+    0 0 55px rgba(239, 68, 68, 0.45),
+    inset -12px -12px 20px rgba(90, 0, 0, 0.3);
 }
 
+   .nucleus {
+    cursor: pointer;
+}
 
 /* LITTLE NUCLEONS */
 
@@ -417,6 +426,36 @@ body {
         rgba(100,30,140,0.3);
 }
 
+.proton {
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #fff7ad,
+            #facc15 35%,
+            #ef4444 100%
+        );
+
+    box-shadow:
+        0 0 10px rgba(250, 204, 21, 0.8);
+}
+
+.neutron {
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #ffffff,
+            #fed7aa 35%,
+            #f97316 100%
+        );
+
+    box-shadow:
+        0 0 10px rgba(249, 115, 22, 0.7);
+}
+
+.nucleon {
+    cursor: pointer;
+}
+   
 .nucleon.one {
     left: 22px;
     top: 30px;
@@ -439,24 +478,29 @@ body {
 
 .electron {
 
+   cursor: pointer;
+   
     position: absolute;
 
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle at 30% 30%,
-            white,
-            #39c8ff 40%,
-            #3565e8 100%
+            #ffffff 0%,
+            #fff7ad 25%,
+            #facc15 55%,
+            #f97316 100%
         );
 
     box-shadow:
-        0 0 15px
-        rgba(40,180,255,0.9);
+        0 0 10px #facc15,
+        0 0 24px rgba(249, 115, 22, 0.8),
+        0 0 40px rgba(239, 68, 68, 0.35);
+
 }
 
 
@@ -843,6 +887,129 @@ body {
     }
 }
 
+   .particle-info {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    width: 230px;
+
+    padding: 14px 16px;
+
+    border-radius: 16px;
+
+    background: rgba(20, 5, 5, 0.72);
+
+    border: 1px solid rgba(250, 204, 21, 0.35);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #fff7ed;
+
+    z-index: 10;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.particle-info-title {
+    color: #facc15;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.particle-info p {
+    margin: 0;
+
+    color: #fed7aa;
+
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+   .particle-info {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 230px;
+    padding: 14px 16px;
+    border-radius: 16px;
+
+    background: rgba(20, 5, 5, 0.72);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #fff7ed;
+    z-index: 10;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.particle-info-title {
+    color: #facc15;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.particle-info p {
+    margin: 0;
+    color: #fed7aa;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+   .charge-hud {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 180px;
+
+    padding: 14px 16px;
+
+    border-radius: 16px;
+
+    background: rgba(20, 5, 5, 0.72);
+
+    border: 1px solid rgba(249, 115, 22, 0.35);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #fed7aa;
+
+    font-size: 0.82rem;
+    line-height: 1.7;
+
+    z-index: 10;
+}
+
+.charge-title {
+    color: #facc15;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.charge-result {
+    margin-top: 8px;
+    padding-top: 8px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.15);
+
+    color: #fff7ed;
+}
+
+.charge-result strong {
+    color: #facc15;
+    font-size: 1.05rem;
+}
 </style>
 </head>
 
@@ -904,6 +1071,24 @@ body {
 
         <div class="sim-window">
 
+           <div class="particle-info" id="particleInfo">
+    <div class="particle-info-title">⚛️ ATOMIC CORE</div>
+    <p>
+        Click the nucleus or an electron to explore the atom.
+    </p>
+</div>
+           <div class="charge-hud" id="chargeHud">
+    <div class="charge-title">⚡ ATOMIC DATA</div>
+
+    <div>Protons: <b id="protonCount">2</b></div>
+    <div>Neutrons: <b id="neutronCount">1</b></div>
+    <div>Electrons: <b id="electronCount">3</b></div>
+
+    <div class="charge-result">
+        Net Charge:
+        <strong id="netCharge">−1</strong>
+    </div>
+</div>
 
             <div class="atom">
 
@@ -933,17 +1118,24 @@ body {
 
                 <!-- NUCLEUS -->
 
-                <div class="nucleus">
+                <div class="nucleus" id="nucleus">
 
-                    <div class="nucleon one"></div>
-                    <div class="nucleon two"></div>
-                    <div class="nucleon three"></div>
+                    <div class="nucleon one proton"></div>
+                    <div class="nucleon two neutron"></div>
+                    <div class="nucleon three proton"></div>
 
                 </div>
 
 
             </div>
+           
+      <div class="particle-info" id="particleInfo">
+    <div class="particle-info-title">⚛️ ATOMIC CORE</div>
 
+    <p>
+        Click the nucleus or an electron to explore the atom.
+    </p>
+</div>
 
             <div class="sim-label">
                 Nucleus + Electron Shells
@@ -1120,6 +1312,72 @@ body {
 
 
 </div>
+
+<script>
+const nucleus = document.getElementById("nucleus");
+const particleInfo = document.getElementById("particleInfo");
+const electrons = document.querySelectorAll(".electron");
+
+nucleus.addEventListener("click", () => {
+    particleInfo.innerHTML = `
+        <div class="particle-info-title">🔴 NUCLEUS</div>
+        <p>
+            The nucleus is the tiny central region of an atom.
+            It contains protons and neutrons.
+        </p>
+    `;
+});
+
+electrons.forEach((electron) => {
+    electron.addEventListener("click", () => {
+        particleInfo.innerHTML = `
+            <div class="particle-info-title">🟡 ELECTRON</div>
+            <p>
+                An electron has a negative electric charge (−1)
+                and is found outside the nucleus.
+            </p>
+        `;
+    });
+});
+
+   const protons = document.querySelectorAll(".proton");
+const neutrons = document.querySelectorAll(".neutron");
+
+protons.forEach((proton) => {
+    proton.addEventListener("click", () => {
+        particleInfo.innerHTML = `
+            <div class="particle-info-title">🟡 PROTON</div>
+            <p>
+                A proton is found inside the nucleus
+                and has a positive electric charge (+1).
+            </p>
+
+neutrons.forEach((neutron) => {
+    neutron.addEventListener("click", () => {
+        particleInfo.innerHTML = `
+            <div class="particle-info-title">🟠 NEUTRON</div>
+            <p>
+                A neutron is found inside the nucleus
+                and has no electric charge (0).
+            </p>
+                   const protonCount = document.querySelectorAll(".proton").length;
+const neutronCount = document.querySelectorAll(".neutron").length;
+const electronCount = document.querySelectorAll(".electron").length;
+
+document.getElementById("protonCount").textContent = protonCount;
+document.getElementById("neutronCount").textContent = neutronCount;
+document.getElementById("electronCount").textContent = electronCount;
+
+const charge = protonCount - electronCount;
+
+document.getElementById("netCharge").textContent =
+    charge > 0 ? `+${charge}` :
+    charge < 0 ? `−${Math.abs(charge)}` :
+    "0";
+        `;
+    });
+});
+</script>
 
 </body>
 
