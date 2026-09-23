@@ -1,0 +1,218 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecules and Atomicity</title>
+    <!-- Modern & Cute Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FFF0F5; /* Light pastel lavender blush/pink */
+            --card-bg: #FFFFFF;
+            --primary-pink: #FFB6C1; /* Soft pink accent */
+            --dark-pink: #FF69B4; /* Deep cute pink for text headers */
+            --text-color: #4A4A4A;
+        }
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            line-height: 1.6; 
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
+        }
+        header {
+            text-align: center;
+            border-bottom: 3px dashed var(--primary-pink);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif; /* Soft rounded fancy headers */
+            color: var(--dark-pink);
+        }
+        h1 { margin-top: 10px; font-size: 2.5em; }
+        .stage-tag {
+            background-color: var(--primary-pink);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        /* Table Reskin */
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; border-radius: 12px; overflow: hidden; }
+        th, td { border: 1px solid var(--primary-pink); padding: 12px; text-align: left; vertical-align: middle; }
+        th { background-color: var(--primary-pink); color: white; font-family: 'Fredoka', sans-serif; }
+        tr:nth-child(even) { background-color: #FFFafb; }
+        
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 8px; }
+
+        .links { margin-top: 30px; text-align: center; }
+        .links a { 
+            display: inline-block; 
+            margin: 10px; 
+            color: var(--dark-pink); 
+            text-decoration: none; 
+            font-weight: bold;
+            border: 2px solid var(--dark-pink);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .links a:hover { background: var(--dark-pink); color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="stage-tag">Stage 5</div>
+            <h1>Molecules and Atomicity</h1>
+        </header>
+
+        <main>
+            <h2>The 5 Types of Atomicity</h2>
+            <ul>
+                <li><strong>Monoatomic:</strong> Contains only one atom</li>
+                <li><strong>Diatomic:</strong> Contains two atoms</li>
+                <li><strong>Triatomic:</strong> Contains three atoms</li>
+                <li><strong>Tetratomic:</strong> Contains four atoms</li>
+                <li><strong>Polyatomic:</strong> Contains more than four atoms</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type of Atomicity</th>
+                        <th>Number of Atoms</th>
+                        <th>Elements</th>
+                        <th>Molecular Formula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monoatomic</td>
+                        <td>1</td>
+                        <td>Helium, Neon, Argon</td>
+                        <td>He, Ne, Ar</td>
+                    </tr>
+                    <tr>
+                        <td>Diatomic</td>
+                        <td>2</td>
+                        <td>Hydrogen, Nitrogen, Oxygen, Iodine, Fluorine, Chlorine, Bromine</td>
+                        <td>H<sub>2</sub>, N<sub>2</sub>, O<sub>2</sub>, I<sub>2</sub>, F<sub>2</sub>, Cl<sub>2</sub>, Br<sub>2</sub></td>
+                    </tr>
+                    <tr>
+                        <td>Triatomic</td>
+                        <td>3</td>
+                        <td>Ozone</td>
+                        <td>O<sub>3</sub></td>
+                    </tr>
+                    <tr>
+                        <td>Tetraatomic</td>
+                        <td>4</td>
+                        <td>Phosphorus</td>
+                        <td>P<sub>4</sub></td>
+                    </tr>
+                    <tr>
+                        <td>Polyatomic</td>
+                        <td>More than 4</td>
+                        <td>Sulphur</td>
+                        <td>S<sub>8</sub></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Let's Define!</h2>
+            <ul style="list-style-type: square;">
+                <li><strong>Atomicity:</strong> The total number of atoms present in a molecule.</li>
+                <li><strong>Molecule:</strong> A particle formed when two or more atoms chemically bond together.</li>
+            </ul>
+
+            <ol style="list-style-type: upper-alpha;">
+                <li><strong>Molecule of elements:</strong> Formed when two or more atoms of the <em>same</em> element chemically bond. <br>Example: H<sub>2</sub>, P<sub>4</sub>, S<sub>8</sub></li>
+                <li><strong>Molecule of compounds:</strong> Formed when two or more atoms of <em>different</em> elements chemically bond. <br>Example: H<sub>2</sub>O, NH<sub>3</sub>, NaCl</li>
+            </ol>
+
+            <!-- Molecule of Elements vs Compounds Table -->
+            <h2>Molecular Classification Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Classification</th>
+                        <th>Core Rule</th>
+                        <th style="text-align: center; width: 160px;">Atomic Structure</th>
+                        <th>Common Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Molecule of Element</strong></td>
+                        <td>Only identical chemical atoms bonded together.</td>
+                        <td style="text-align: center;">
+                            <!-- SVG Drawing of Hydrogen Molecule (Same Atoms) -->
+                            <svg width="120" height="60" viewBox="0 0 120 60" style="display: block; margin: auto;">
+                                <circle cx="45" cy="30" r="22" fill="#FF69B4" stroke="#fff" stroke-width="2" />
+                                <circle cx="75" cy="30" r="22" fill="#FF69B4" stroke="#fff" stroke-width="2" />
+                                <text x="45" y="35" font-family: 'Fredoka' font-size="14" fill="#fff" text-anchor="middle">H</text>
+                                <text x="75" y="35" font-family: 'Fredoka' font-size="14" fill="#fff" text-anchor="middle">H</text>
+                            </svg>
+                        </td>
+                        <td>Hydrogen (H<sub>2</sub>), Oxygen (O<sub>2</sub>), Phosphorus (P<sub>4</sub>)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Molecule of Compound</strong></td>
+                        <td>Two or more completely distinct chemical elements bonded.</td>
+                        <td style="text-align: center;">
+                            <!-- SVG Drawing of Water Molecule (Different Atoms) -->
+                            <svg width="120" height="60" viewBox="0 0 120 60" style="display: block; margin: auto;">
+                                <circle cx="60" cy="30" r="24" fill="#FF69B4" stroke="#fff" stroke-width="2" />
+                                <circle cx="34" cy="40" r="14" fill="#98FB98" stroke="#fff" stroke-width="2" />
+                                <circle cx="86" cy="40" r="14" fill="#98FB98" stroke="#fff" stroke-width="2" />
+                                <text x="60" y="35" font-family: 'Fredoka' font-size="14" fill="#fff" text-anchor="middle">O</text>
+                                <text x="34" y="44" font-family: 'Fredoka' font-size="10" fill="#4A4A4A" text-anchor="middle">H</text>
+                                <text x="86" y="44" font-family: 'Fredoka' font-size="10" fill="#4A4A4A" text-anchor="middle">H</text>
+                            </svg>
+                        </td>
+                        <td>Water (H<sub>2</sub>O), Ammonia (NH<sub>3</sub>), Salt (NaCl)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+<br>
+<h2> FUN FACT TIME!
+
+<h3> 1.If you uncoil all the DNA particles, they would stretch to 67 billion miles
+<br>
+<h3>
+2. The molecules are 99.999999% empty from inside
+<br> 
+    </style>
+</head>
+<body>
+<br>
+
+                <a href="https://wordwall.net" target="_blank" rel="noopener noreferrer">🎮 Play The Atomicity Finesta</a>
+<br>
+
+                <a href="https://sciencefacts.net" target="_blank" rel="noopener noreferrer">📚 Learn on Science Facts</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
