@@ -1,1238 +1,1028 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>Science Hub</title>
- 
-<link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Chewy&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-<style>
+    <title>Science Hub</title>
 
-.topic-title {
-font-family: "Asimovian", sans-serif;
-    font-weight: 400;
-}
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.stage {
-    font-family: "Silkscreen", sans-serif;
-    font-weight: 700;
-}
-.topic-description {
-    font-family: "Chewy", cursive;
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asimovian&family=Chewy&family=Silkscreen:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
 
-    position: relative;
-    z-index: 2;
 
-    font-size: 28px;
-    
-    margin: 0 0 22px;
+    <style>
 
-    max-width: 520px;
+        /* ==============================
+           RESET
+        ============================== */
 
-    color: #fff8e7;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.65;
+        html {
+            scroll-behavior: smooth;
+        }
 
-    text-shadow:
-        0 2px 6px rgba(70,0,0,0.35);
 
-    transform: translateZ(25px);
-}
+        /* ==============================
+           BODY
+        ============================== */
 
-/* =====================================================
-   RESET
-===================================================== */
+        body {
 
-* {
-    box-sizing: border-box;
-}
+            min-height: 100vh;
 
+            font-family: Arial, sans-serif;
 
-/* =====================================================
-   BODY
-===================================================== */
+            color: #f8fafc;
 
-body {
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(37, 99, 235, 0.35),
+                    transparent 30%
+                ),
 
-    margin: 0;
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(139, 92, 246, 0.30),
+                    transparent 30%
+                ),
 
-    min-height: 100vh;
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(6, 182, 212, 0.22),
+                    transparent 35%
+                ),
 
-    font-family:
-        "Arial",
-        sans-serif;
+                linear-gradient(
+                    135deg,
+                    #080b1a,
+                    #111936 50%,
+                    #070a16
+                );
 
-    color: #24130b;
+            background-attachment: fixed;
 
-    background:
-                radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.35), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.28), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.20), transparent 35%),
-        linear-gradient(135deg, #080B1A, #111936);
+            overflow-x: hidden;
+        }
 
-    background-attachment: fixed;
-}
 
+        /* ==============================
+           HEADER
+        ============================== */
 
-/* =====================================================
-   PAGE
-===================================================== */
+        .header {
 
-.page {
+            text-align: center;
 
-    min-height: 100vh;
+            padding: 70px 20px 50px;
+        }
 
-    padding:
-        30px
-        35px
-        50px;
-}
 
+        .badge {
 
-/* =====================================================
-   HEADER
-===================================================== */
+            display: inline-block;
 
-.header {
+            padding: 8px 18px;
 
-    max-width: 1400px;
+            border-radius: 999px;
 
-    margin:
-        auto
-        auto
-        35px;
+            background:
+                rgba(255, 255, 255, 0.10);
 
-    display: flex;
+            border:
+                1px solid rgba(255, 255, 255, 0.20);
 
-    justify-content: space-between;
+            color: #93c5fd;
 
-    align-items: center;
+            font-family: "Silkscreen", monospace;
 
-    padding:
-        10px
-        10px;
-}
+            font-size: 0.75rem;
 
+            letter-spacing: 2px;
 
-/* =====================================================
-   TITLE
-===================================================== */
+            backdrop-filter: blur(10px);
 
-.title {
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.25);
+        }
 
-    margin:0;
 
-    font-family:
-        "Silkscreen",
-        sans-serif;
+        .main-title {
 
-    font-size: 4rem;
+            margin-top: 22px;
 
-    letter-spacing: 4px;
+            font-family: "Asimovian", sans-serif;
 
-    color: #fff8dc;
+            font-size:
+                clamp(3rem, 8vw, 6.5rem);
 
-    text-shadow:
+            letter-spacing: 3px;
 
-            0 0 10px rgba(56, 189, 248, 0.7),
-        0 0 25px rgba(139, 92, 246, 0.5);
+            background:
+                linear-gradient(
+                    90deg,
+                    #60a5fa,
+                    #a78bfa,
+                    #22d3ee
+                );
 
-}
+            -webkit-background-clip: text;
 
+            -webkit-text-fill-color: transparent;
 
-/* =====================================================
-   AUTHOR
-===================================================== */
+            text-shadow:
+                0 0 35px rgba(96, 165, 250, 0.20);
+        }
 
-.author {
 
-    text-align: right;
+        .subtitle {
 
-    font-family:
-        Georgia,
-        serif;
+            max-width: 720px;
 
-    font-size: 1.05rem;
+            margin: 15px auto 0;
 
-    font-weight: bold;
+            color: #cbd5e1;
 
-    line-height: 1.5;
+            font-size: 1.05rem;
 
-    color: #fff8dc;
+            line-height: 1.7;
+        }
 
-    text-shadow:
-        0 2px 8px
-        rgba(80, 0, 0, 0.4);
-}
 
+        /* ==============================
+           MAIN
+        ============================== */
 
-/* =====================================================
-   INTRO
-===================================================== */
+        .main {
 
-.intro {
+            width: min(1200px, 92%);
 
-    max-width: 900px;
+            margin: auto;
 
-    margin:
-        0
-        auto
-        40px;
+            padding-bottom: 80px;
+        }
 
-    text-align: center;
-}
 
+        /* ==============================
+           SECTION
+        ============================== */
 
-.intro h2 {
+        .stage-section {
 
-    margin:
-        0
-        0
-        10px;
+            margin-bottom: 55px;
+        }
 
-    font-family:
-        "Arial Black",
-        sans-serif;
 
-    font-size: 2rem;
+        .stage-heading {
 
-    color: white;
+            display: flex;
 
-    text-shadow:
-        0 3px 12px
-        rgba(100, 0, 0, 0.4);
-}
+            align-items: center;
 
+            gap: 15px;
 
-.intro p {
+            margin-bottom: 25px;
+        }
 
-    margin: 0;
 
-    color: #fff8dc;
+        .stage-label {
 
-    font-size: 1.05rem;
+            display: inline-block;
 
-    font-weight: 600;
+            padding: 8px 15px;
 
-    line-height: 1.7;
+            border-radius: 999px;
 
-    text-shadow:
-        0 2px 8px
-        rgba(80, 0, 0, 0.35);
-}
+            background:
+                rgba(255, 255, 255, 0.08);
 
+            border:
+                1px solid rgba(255, 255, 255, 0.16);
 
-/* =====================================================
-   TOPIC GRID
-===================================================== */
+            font-family: "Silkscreen", monospace;
 
-.topic-grid {
+            font-size: 0.7rem;
 
-    max-width: 1250px;
+            letter-spacing: 1.5px;
 
-    margin: auto;
+            color: #93c5fd;
 
-    display: grid;
+            backdrop-filter: blur(10px);
+        }
 
-    grid-template-columns:
-        repeat(2, 1fr);
 
-    gap: 30px;
+        .stage-heading h2 {
 
-    perspective: 1200px;
-}
+            font-family: "Asimovian", sans-serif;
 
+            font-size: 2rem;
 
-/* =====================================================
-   GLASS CARD
-===================================================== */
+            letter-spacing: 1px;
+        }
 
-.topic-card {
 
-    position: relative;
+        .stage-description {
 
-    min-height: 420px;
+            color: #94a3b8;
 
-    padding: 32px;
+            margin-top: -12px;
 
-    overflow: hidden;
+            margin-bottom: 25px;
 
-    text-decoration: none;
+            line-height: 1.6;
+        }
 
-    color: inherit;
 
-    border-radius: 28px;
+        /* ==============================
+           CARD GRID
+        ============================== */
 
-    background:
-        rgba(255, 255, 255, 0.10);
+        .topic-grid {
 
+            display: grid;
 
-    border:
-        1px solid
-        rgba(255,255,255,0.18);
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
 
-    box-shadow:
+            gap: 25px;
+        }
 
-         0 12px 35px rgba(0, 0, 0, 0.25),
 
-        inset 0 1px 0
-        rgba(255,255,255,0.5);
+        /* ==============================
+           GLASS CARD
+        ============================== */
 
-    backdrop-filter:
-        blur(14px);
+        .topic-card {
 
-    -webkit-backdrop-filter:
-        blur(14px);
+            position: relative;
 
-    transform-style: preserve-3d;
+            min-height: 300px;
 
-    transition:
-               transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
+            padding: 30px;
 
+            border-radius: 28px;
 
-    will-change: transform;
-}
-.topic-card:hover {
-    box-shadow: 0 18px 45px rgba(37, 99, 235, 0.25);
-    border-color: rgba(255, 255, 255, 0.35);
-}
+            background:
+                rgba(255, 255, 255, 0.09);
 
- .topic-card img {
-    width: 100%;
-    max-height: 180px;
-    object-fit: contain;
-    border-radius: 18px;
-    display: block;
-    margin: 0 auto 20px;
-}
- 
+            border:
+                1px solid rgba(255, 255, 255, 0.17);
 
+            box-shadow:
 
-/* =====================================================
-   CARD LIGHT
-===================================================== */
+                0 15px 40px rgba(0, 0, 0, 0.30),
 
-.topic-card::before {
+                inset 0 1px 0
+                rgba(255, 255, 255, 0.14);
 
-    content: "";
+            backdrop-filter: blur(16px);
 
-    position: absolute;
+            -webkit-backdrop-filter: blur(16px);
 
-    top: -100px;
+            overflow: hidden;
 
-    left: -100px;
+            text-decoration: none;
 
-    width: 250px;
+            color: white;
 
-    height: 250px;
+            transform-style: preserve-3d;
 
-    border-radius: 50%;
+            transition:
 
-    background:
-        rgba(255,255,255,0.25);
+                border-color 0.3s ease,
 
-    filter:
-        blur(25px);
+                box-shadow 0.3s ease,
 
-    pointer-events: none;
-}
+                transform 0.15s ease;
+        }
 
 
-/* =====================================================
-   CARD GLOW
-===================================================== */
+        .topic-card::before {
 
-.topic-card::after {
+            content: "";
 
-    content: "";
+            position: absolute;
 
-    position: absolute;
+            width: 180px;
 
-    width: 220px;
+            height: 180px;
 
-    height: 220px;
+            top: -90px;
 
-    right: -80px;
+            right: -70px;
 
-    bottom: -80px;
+            border-radius: 50%;
 
-    border-radius: 50%;
+            background: var(--glow);
 
-    background:
-        rgba(255,255,255,0.16);
+            filter: blur(45px);
 
-    filter:
-        blur(4px);
+            opacity: 0.35;
 
-    pointer-events: none;
-}
+            pointer-events: none;
+        }
 
 
-/* =====================================================
-   CARD HOVER
-===================================================== */
+        .topic-card:hover {
 
-.topic-card:hover {
+            border-color:
+                rgba(255, 255, 255, 0.35);
 
-    box-shadow:
+            box-shadow:
 
-        0 30px 70px
-        rgba(90, 0, 0, 0.35),
+                0 20px 55px rgba(0, 0, 0, 0.42),
 
-        inset 0 1px 0
-        rgba(255,255,255,0.7);
-}
+                0 0 30px var(--card-glow),
 
+                inset 0 1px 0
+                rgba(255, 255, 255, 0.20);
+        }
 
-/* =====================================================
-   ICON
-===================================================== */
 
-.topic-icon {
+        /* ==============================
+           ICON
+        ============================== */
 
-    display: block;
+        .topic-icon {
 
-    position: relative;
+            width: 68px;
 
-    z-index: 2;
+            height: 68px;
 
-    font-size: 5rem;
+            display: flex;
 
-    margin-bottom: 15px;
+            align-items: center;
 
-    transform:
-        translateZ(45px);
+            justify-content: center;
 
-    filter:
-        drop-shadow(
-            0 8px 8px
-            rgba(70,0,0,0.25)
-        );
-}
+            border-radius: 20px;
 
+            background:
+                rgba(255, 255, 255, 0.10);
 
-/* =====================================================
-   TITLE
-===================================================== */
+            border:
+                1px solid rgba(255, 255, 255, 0.18);
 
+            font-size: 2rem;
 
-/* =====================================================
-   DESCRIPTION
-===================================================== */
+            margin-bottom: 22px;
 
-.topic-description {
+            box-shadow:
+                0 0 25px var(--card-glow);
+        }
 
-    position: relative;
 
-    z-index: 2;
+        /* ==============================
+           CARD CONTENT
+        ============================== */
 
-    margin:
-        0
-        0
-        22px;
+        .topic-card h3 {
 
-    max-width: 520px;
+            font-family: "Asimovian", sans-serif;
 
-    color: #fff8e7;
+            font-size: 1.65rem;
 
-    font-size: 1rem;
+            letter-spacing: 1px;
 
-    font-weight: 600;
+            margin-bottom: 13px;
+        }
 
-    line-height: 1.65;
 
-    text-shadow:
-        0 2px 6px
-        rgba(70,0,0,0.35);
+        .topic-card p {
 
-    transform:
-        translateZ(25px);
-}
+            color: #cbd5e1;
 
+            line-height: 1.65;
 
-/* =====================================================
-   FEATURES
-===================================================== */
+            font-size: 0.95rem;
+        }
 
-.features {
 
-    position: relative;
+        /* ==============================
+           EXPLORE BUTTON
+        ============================== */
 
-    z-index: 2;
+        .explore {
 
-    display: flex;
+            display: inline-flex;
 
-    flex-wrap: wrap;
+            align-items: center;
 
-    gap: 9px;
+            gap: 8px;
 
-    margin-bottom: 25px;
+            margin-top: 25px;
 
-    transform:
-        translateZ(30px);
-}
+            padding: 10px 16px;
 
+            border-radius: 14px;
 
-.feature {
+            background:
+                rgba(255, 255, 255, 0.10);
 
-    padding:
-        8px
-        12px;
+            border:
+                1px solid rgba(255, 255, 255, 0.16);
 
-    border-radius: 50px;
+            color: #f8fafc;
 
-    background:
-        rgba(255,255,255,0.28);
+            font-size: 0.85rem;
 
-    border:
-        1px solid
-        rgba(255,255,255,0.4);
+            font-weight: 700;
 
-    color: white;
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
 
-    font-size: 0.78rem;
 
-    font-weight: bold;
+        .topic-card:hover .explore {
 
-    backdrop-filter:
-        blur(8px);
-}
+            background:
+                rgba(255, 255, 255, 0.18);
 
+            transform: translateX(4px);
+        }
 
-/* =====================================================
-   EXPLORE BUTTON
-===================================================== */
 
-.explore {
+        /* ==============================
+           STAGE 1 COLOR
+        ============================== */
 
-    position: relative;
+        .states {
 
-    z-index: 2;
+            --glow:
+                rgba(56, 189, 248, 0.8);
 
-    display: inline-flex;
+            --card-glow:
+                rgba(56, 189, 248, 0.25);
+        }
 
-    align-items: center;
 
-    gap: 10px;
+        /* ==============================
+           STAGE 2 COLORS
+        ============================== */
 
-    padding:
-        13px
-        20px;
+        .atom {
 
-    border-radius: 15px;
+            --glow:
+                rgba(249, 115, 22, 0.8);
 
-    background:
-        rgba(90, 0, 0, 0.5);
+            --card-glow:
+                rgba(249, 115, 22, 0.25);
+        }
 
-    border:
-        1px solid
-        rgba(255,255,255,0.4);
 
-    color: white;
+        .valency {
 
-    font-size: 0.9rem;
+            --glow:
+                rgba(139, 92, 246, 0.8);
 
-    font-weight: 900;
+            --card-glow:
+                rgba(139, 92, 246, 0.25);
+        }
 
-    box-shadow:
-        0 8px 18px
-        rgba(80,0,0,0.2);
 
-    transform:
-        translateZ(40px);
+        .radicals {
 
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
+            --glow:
+                rgba(16, 185, 129, 0.8);
 
+            --card-glow:
+                rgba(16, 185, 129, 0.25);
+        }
 
-.topic-card:hover .explore {
 
-    background:
-        rgba(120, 0, 0, 0.7);
-}
+        .molecules {
 
+            --glow:
+                rgba(250, 204, 21, 0.8);
 
-/* =====================================================
-   STATES CARD
-===================================================== */
+            --card-glow:
+                rgba(250, 204, 21, 0.25);
+        }
 
-.states-card {
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.35),
-            rgba(255,200,80,0.18)
-        );
-}
+        /* ==============================
+           STAGE 2 CONNECTION LINE
+        ============================== */
 
+        .stage-two-grid {
 
-/* =====================================================
-   STRUCTURE OF ATOM
-   SPECIAL LAYOUT
-===================================================== */
+            position: relative;
+        }
 
-.atom-card {
 
-    display: grid;
+        .stage-two-grid::before {
 
-    grid-template-columns:
-        150px
-        1fr;
+            content: "";
 
-    grid-template-rows:
-        auto
-        auto
-        auto
-        auto;
+            position: absolute;
 
-    column-gap: 25px;
+            left: 50%;
 
-    align-items: center;
+            top: -20px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 225, 80, 0.30),
-            rgba(255, 120, 30, 0.20),
-            rgba(255,255,255,0.18)
-        );
-}
+            bottom: -20px;
 
+            width: 2px;
 
-/* Atom icon becomes giant side element */
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(249, 115, 22, 0.15),
+                    rgba(139, 92, 246, 0.35),
+                    rgba(16, 185, 129, 0.35),
+                    rgba(250, 204, 21, 0.15)
+                );
 
-.atom-card .topic-icon {
+            opacity: 0.25;
 
-    grid-column: 1;
+            pointer-events: none;
+        }
 
-    grid-row:
-        1 / span 4;
 
-    font-size: 7rem;
+        /* ==============================
+           FOOTER
+        ============================== */
 
-    text-align: center;
+        .footer {
 
-    transform:
-        translateZ(65px);
-}
+            text-align: center;
 
+            padding: 35px 20px 45px;
 
-/* Atom title */
+            border-top:
+                1px solid rgba(255, 255, 255, 0.08);
 
-.atom-card .topic-title {
+            color: #64748b;
+        }
 
-    grid-column: 2;
 
-    grid-row: 1;
+        .footer strong {
 
-    font-size: 2.25rem;
+            color: #94a3b8;
+        }
 
-    color: #fffbea;
-}
 
+        /* ==============================
+           RESPONSIVE
+        ============================== */
 
-/* Atom description */
+        @media (max-width: 950px) {
 
-.atom-card .topic-description {
+            .topic-grid {
 
-    grid-column: 2;
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
 
-    grid-row: 2;
-}
+            .stage-two-grid::before {
 
+                display: none;
+            }
+        }
 
-/* Atom features */
 
-.atom-card .features {
+        @media (max-width: 620px) {
 
-    grid-column: 2;
+            .header {
 
-    grid-row: 3;
+                padding-top: 45px;
+            }
 
-    margin-bottom: 15px;
-}
 
+            .main-title {
 
-/* Atom button */
+                font-size: 3.2rem;
+            }
 
-.atom-card .explore {
 
-    grid-column: 2;
+            .topic-grid {
 
-    grid-row: 4;
+                grid-template-columns: 1fr;
+            }
 
-    justify-self: start;
-}
 
+            .topic-card {
 
-/* =====================================================
-   VALENCY CARD
-===================================================== */
+                min-height: auto;
+            }
 
-.valency-card {
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,180,40,0.30),
-            rgba(255,255,255,0.18)
-        );
-}
+            .stage-heading {
 
+                flex-direction: column;
 
-/* =====================================================
-   RADICALS CARD
-===================================================== */
+                align-items: flex-start;
+            }
+        }
 
-.radicals-card {
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(190, 50, 50, 0.30),
-            rgba(255, 180, 40, 0.20),
-            rgba(255,255,255,0.18)
-        );
-}
-
-
-/* =====================================================
-   COMING SOON
-===================================================== */
-
-.coming-soon {
-
-    max-width: 1250px;
-
-    margin:
-        30px
-        auto
-        0;
-
-    padding:
-        18px
-        25px;
-
-    text-align: center;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,0.24);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.5);
-
-    backdrop-filter:
-        blur(14px);
-
-    color: white;
-
-    font-weight: bold;
-
-    text-shadow:
-        0 2px 6px
-        rgba(70,0,0,0.35);
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.footer {
-
-    max-width: 1250px;
-
-    margin:
-        25px
-        auto
-        0;
-
-    text-align: center;
-
-    color: #fff8dc;
-
-    font-size: 0.82rem;
-
-    font-weight: bold;
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .topic-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-}
-
-
-@media (max-width: 650px) {
-
-    .page {
-
-        padding:
-            20px
-            15px
-            35px;
-    }
-
-
-    .header {
-
-        flex-direction: column;
-
-        gap: 10px;
-
-        text-align: center;
-    }
-
-
-    .title {
-
-        font-size: 2.7rem;
-
-        text-align: center;
-    }
-
-
-    .author {
-
-        text-align: center;
-    }
-
-
-    .intro h2 {
-
-        font-size: 1.5rem;
-    }
-
-
-    .topic-card {
-
-        min-height: 390px;
-
-        padding: 25px;
-    }
-
-
-    /* Reset special atom layout on mobile */
-
-    .atom-card {
-
-        display: block;
-    }
-
-
-    .atom-card .topic-icon {
-
-        text-align: left;
-
-        font-size: 5rem;
-
-        margin-bottom: 10px;
-    }
-
-
-    .atom-card .topic-title {
-
-        font-size: 1.9rem;
-    }
-
-}
-
-
-/* =====================================================
-   REDUCE MOTION
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .topic-card {
-
-        transition: none;
-    }
-
-}
-
-</style>
+    </style>
 
 </head>
 
 
 <body>
 
-<div class="page">
 
+    <!-- =================================
+         HEADER
+    ================================== -->
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+    <header class="header">
 
-<header class="header">
-
-    <h1 class="title">
-        🧪 SCIENCE HUB
-    </h1>
-
-    <div class="author">
-        By Group 5 from 7B
-    </div>
-
-</header>
-
-
-<!-- =====================================================
-     INTRO
-===================================================== -->
-
-<section class="intro">
-
-    <h2 class="fun-text">
-        Explore • Experiment • Discover
-    </h2>
-
-    <p class="fun-text">
-        Welcome to your interactive science learning hub!
-        Choose a topic and dive into simulations,
-        concepts, experiments and challenges.
-    </p>
-
-</section>
-
-
-<!-- =====================================================
-     TOPIC GRID
-===================================================== -->
-
-<main class="topic-grid">
-
-
-<!-- =====================================================
-     STATES OF MATTER
-===================================================== -->
-
-<a
-    href="states-of-matter.html"
-    class="topic-card states-card"
->
-
-    <span class="topic-icon">
-        🧊
-    </span>
-<img src="https://happylearning.tv/en/states-of-matter/" alt="States of Matter">
-
-
-    <h2 class="topic-title">
-        States of Matter
-    </h2>
-
-    <p class="topic-description">
-
-        Explore how particles behave in different
-        states of matter — from tightly packed solids
-        to energetic plasma and mysterious BECs.
-
-    </p>
-
-    <div class="features">
-
-        <span class="feature">🧊 Solid</span>
-
-        <span class="feature">💧 Liquid</span>
-
-        <span class="feature">💨 Gas</span>
-
-        <span class="feature">⚡ Plasma</span>
-
-        <span class="feature">⚛️ BEC</span>
-
-    </div>
-
-    <span class="explore">
-        Explore Simulation →
-    </span>
-
-</a>
-
-
-
-<!-- =====================================================
-     STRUCTURE OF ATOM
-===================================================== -->
-
-<a
-    href="structure-of-atom.html"
-    class="topic-card atom-card"
->
-
-    <span class="topic-icon">
-        ⚛️
-    </span>
-
-    <img src="https://www.istockphoto.com/photos/atom-energy" alt="Structure of Atom">
-
-
-    <h2 class="topic-title">
-        Structure of Atom
-    </h2>
-
-    <p class="topic-description">
-
-        Enter the microscopic world of atoms.
-        Discover the nucleus, protons, neutrons,
-        electrons and electron shells.
-
-    </p>
-
-    <div class="features">
-
-        <span class="feature">
-            ➕ Proton
+        <span class="badge">
+            SCIENCE HUB
         </span>
 
-        <span class="feature">
-            ⚪ Neutron
-        </span>
 
-        <span class="feature">
-            🔵 Electron
-        </span>
+        <h1 class="main-title">
+            EXPLORE SCIENCE
+        </h1>
 
-        <span class="feature">
-            🌀 Shells
-        </span>
 
-    </div>
+        <p class="subtitle">
 
-    <span class="explore">
-        Enter The Atom →
-    </span>
+            Enter the Science Hub and explore
+            interactive topics, simulations,
+            experiments and games.
 
-</a>
+        </p>
 
+    </header>
 
 
-<!-- =====================================================
-     VALENCY & IONS
-===================================================== -->
 
-<a
-    href="valency-and-ions.html"
-    class="topic-card valency-card"
->
+    <!-- =================================
+         MAIN
+    ================================== -->
 
-    <span class="topic-icon">
-        ⚡
-    </span>
- 
-    <img src="<img src="https://www.ch.ic.ac.uk/rzepa/blog/?p=1749" alt="Hydrogen Diagram In Water">
-" alt="Hydrogen Diagram In Water">
+    <main class="main">
 
 
-    <h2 class="topic-title">
-        Valency & Ions
-    </h2>
+        <!-- =================================
+             STAGE 1
+        ================================== -->
 
-    <p class="topic-description">
+        <section class="stage-section">
 
-        Discover how atoms gain or lose electrons,
-        form ions and use valency to build
-        chemical compounds.
+            <div class="stage-heading">
 
-    </p>
+                <span class="stage-label">
+                    STAGE 01
+                </span>
 
-    <div class="features">
+                <h2>
+                    States of Matter
+                </h2>
 
-        <span class="feature">
-            ⚡ Valency
-        </span>
+            </div>
 
-        <span class="feature">
-            ➕ Cations
-        </span>
 
-        <span class="feature">
-            ➖ Anions
-        </span>
+            <p class="stage-description">
 
-        <span class="feature">
-            🔄 Criss-Cross
-        </span>
+                Start your journey by exploring
+                the different states of matter
+                and how their particles behave.
 
-    </div>
+            </p>
 
-    <span class="explore">
-        Explore Valency →
-    </span>
 
-</a>
+            <div class="topic-grid">
 
 
+                <a
+                    href="states-of-matter.html"
+                    class="topic-card states"
+                >
 
-<!-- =====================================================
-     RADICALS
-===================================================== -->
+                    <div class="topic-icon">
+                        🧊
+                    </div>
 
-<a
-    href="radicals.html"
-    class="topic-card radicals-card"
->
 
-    <span class="topic-icon">
-        🧪
-    </span>
+                    <h3>
+                        States of Matter
+                    </h3>
 
-<img src="<img src="https://www.rejuvent.com/tag/free-radicals/" alt="Free Radicals like Chloro-fluoro-Carbons can Destroy the ozone layer which protects us from the Harmful uv Rays of the Sun">
 
+                    <p>
 
-    <h2 class="topic-title">
-        Radicals
-    </h2>
+                        Explore solids, liquids,
+                        gases, plasma and
+                        Bose-Einstein condensates
+                        through interactive
+                        particle simulations.
 
-    <p class="topic-description">
+                    </p>
 
-        Master important Grade 7 Chemistry radicals.
-        Learn the formulas, charges and the
-        relationship between the -ate and -ite twins.
 
-    </p>
+                    <span class="explore">
+                        Explore →
+                    </span>
 
-    <div class="features">
+                </a>
 
-        <span class="feature">
-            🟣 Carbonate
-        </span>
+            </div>
 
-        <span class="feature">
-            🔵 Phosphate
-        </span>
+        </section>
 
-        <span class="feature">
-            🟢 Sulphate
-        </span>
 
-        <span class="feature">
-            🟠 Nitrate
-        </span>
 
-        <span class="feature">
-            🔄 -ATE / -ITE
-        </span>
+        <!-- =================================
+             STAGE 2
+        ================================== -->
 
-    </div>
+        <section class="stage-section">
 
-    <span class="explore">
-        Explore Radicals →
-    </span>
+            <div class="stage-heading">
 
-</a>
+                <span class="stage-label">
+                    STAGE 02
+                </span>
 
+                <h2>
+                    Inside the World of Matter
+                </h2>
 
-</main>
+            </div>
 
 
+            <p class="stage-description">
 
-<!-- =====================================================
-     FUTURE CONTENT
-===================================================== -->
+                Stage 2 takes you deeper —
+                from the structure of an atom
+                to ions, radicals, atomicity
+                and molecules.
 
-<section class="coming-soon">
+            </p>
 
-    🚀 More interactive science topics coming soon...
 
-</section>
+            <div class="topic-grid stage-two-grid">
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-0
-<footer class="footer">
+                <!-- STRUCTURE OF ATOM -->
 
-    🧪 Science Hub • Learn Science by Exploring
+                <a
+                    href="structure-of-atom.html"
+                    class="topic-card atom"
+                >
 
-</footer>
+                    <div class="topic-icon">
+                        ⚛️
+                    </div>
 
 
-</div>
+                    <h3>
+                        Structure of Atom
+                    </h3>
 
 
-<!-- =====================================================
-     3D CARD TILT
-===================================================== -->
+                    <p>
 
-<script>
+                        Dive inside the atom and
+                        discover protons, neutrons,
+                        electrons, the nucleus and
+                        electron shells.
 
-const cards =
-    document.querySelectorAll(".topic-card");
+                    </p>
 
 
-cards.forEach(card => {
+                    <span class="explore">
+                        Explore →
+                    </span>
 
-    card.addEventListener("mousemove", (event) => {
+                </a>
 
-        const rect =
-            card.getBoundingClientRect();
 
-        const x =
-            event.clientX - rect.left;
 
-        const y =
-            event.clientY - rect.top;
+                <!-- VALENCY & IONS -->
 
-        const centerX =
-            rect.width / 2;
+                <a
+                    href="valency-and-ions.html"
+                    class="topic-card valency"
+                >
 
-        const centerY =
-            rect.height / 2;
+                    <div class="topic-icon">
+                        ⚡
+                    </div>
 
-        const rotateY =
-            ((x - centerX) / centerX) * 7;
 
-        const rotateX =
-            ((centerY - y) / centerY) * 7;
+                    <h3>
+                        Valency &amp; Ions
+                    </h3>
 
-        card.style.transform =
-            `perspective(1000px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-5px)`;
 
-    });
+                    <p>
 
+                        Learn how atoms gain or
+                        lose electrons, understand
+                        valency and discover how
+                        ions are formed.
 
-    card.addEventListener("mouseleave", () => {
+                    </p>
 
-        card.style.transform =
-            "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
 
-    });
+                    <span class="explore">
+                        Explore →
+                    </span>
 
-});
+                </a>
 
-</script>
+
+
+                <!-- RADICALS -->
+
+                <a
+                    href="radicals.html"
+                    class="topic-card radicals"
+                >
+
+                    <div class="topic-icon">
+                        🧪
+                    </div>
+
+
+                    <h3>
+                        Radicals
+                    </h3>
+
+
+                    <p>
+
+                        Discover common radicals,
+                        their charges, formulas and
+                        patterns through interactive
+                        learning and Radical Reckoning.
+
+                    </p>
+
+
+                    <span class="explore">
+                        Explore →
+                    </span>
+
+                </a>
+
+
+
+                <!-- ATOMICITY & MOLECULES -->
+
+                <a
+                    href="atomicity-and-molecules.html"
+                    class="topic-card molecules"
+                >
+
+                    <div class="topic-icon">
+                        🧬
+                    </div>
+
+
+                    <h3>
+                        Atomicity &amp; Molecules
+                    </h3>
+
+
+                    <p>
+
+                        Explore atomicity,
+                        different types of molecules
+                        and how atoms combine to form
+                        molecular structures.
+
+                    </p>
+
+
+                    <span class="explore">
+                        Explore →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+
+    <footer class="footer">
+
+        <p>
+
+            Built for the
+            <strong>Science Hub</strong>
+            learning project.
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- =================================
+         3D CARD TILT
+    ================================== -->
+
+    <script>
+
+        const cards =
+            document.querySelectorAll(".topic-card");
+
+
+        cards.forEach(card => {
+
+
+            card.addEventListener(
+                "mousemove",
+                event => {
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+
+                    const x =
+                        event.clientX - rect.left;
+
+
+                    const y =
+                        event.clientY - rect.top;
+
+
+                    const centerX =
+                        rect.width / 2;
+
+
+                    const centerY =
+                        rect.height / 2;
+
+
+                    const rotateY =
+                        ((x - centerX) / centerX) * 7;
+
+
+                    const rotateX =
+                        ((centerY - y) / centerY) * 7;
+
+
+                    card.style.transform = `
+
+                        perspective(1000px)
+
+                        rotateX(${rotateX}deg)
+
+                        rotateY(${rotateY}deg)
+
+                        translateY(-5px)
+
+                    `;
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    card.style.transform = `
+
+                        perspective(1000px)
+
+                        rotateX(0deg)
+
+                        rotateY(0deg)
+
+                        translateY(0px)
+
+                    `;
+                }
+            );
+
+        });
+
+    </script>
 
 
 </body>
-
 </html>
