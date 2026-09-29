@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metals and Non-Metals - Science Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08080c;color:#eaeaf2;font-family:'Space Grotesk',sans-serif}
+.bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(600px at 10% 10%, #7c3aed55, transparent),radial-gradient(700px at 90% 90%, #06b6d488, transparent),#08080c}
+.top{max-width:1100px;margin:auto;padding:28px 24px;display:flex;justify-content:center;align-items:center;border-bottom:1px solid rgba(255,255,255,0.08)}
+.top b{letter-spacing:3px;font-size:18px}
+.hero{max-width:1100px;margin:auto;padding:50px 24px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,6vw,68px);line-height:.9;letter-spacing:-2px}
+.hero h1 i{font-style:normal;background:linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{margin:18px auto 0;color:#9ca3af;max-width:600px;font-size:17px;line-height:1.6}
+.wrap{max-width:1100px;margin:auto;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}}
+.box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:22px;backdrop-filter:blur(16px)}
+.box h4{font-family:'JetBrains Mono';font-size:11px;letter-spacing:2px;color:#9ca3af;text-transform:uppercase;margin-bottom:12px}
+.box h2{font-size:24px;margin-bottom:10px}
+.list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.list span{background:rgba(0,0,0,0.35);border-radius:12px;padding:10px 12px;border-left:3px solid #22d3ee;font-size:14px}
+.alert{margin-top:12px;font-family:'JetBrains Mono';font-size:12px;padding:10px 12px;border-radius:10px;background:rgba(244,114,182,0.1);border:1px dashed #f472b6;color:#f9a8d4}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{flex:1 1 160px;background:linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:16px}
+.chip .s{font-size:28px;font-weight:700}.chip .n{font-size:11px;letter-spacing:1.5px;color:#9ca3af;text-transform:uppercase;margin-top:2px}.chip .u{margin-top:8px;font-size:13px;color:#d1d5db;line-height:1.4}
+.full{grid-column:1/-1}
+.mcq{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:18px;margin-bottom:12px}
+.mcq .q{font-weight:700;font-size:15px;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:500px){.opts{grid-template-columns:1fr}}
+.opt{padding:10px 12px;border-radius:10px;background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.1);font-size:14px;cursor:pointer;transition:.2s}
+.opt:hover{background:rgba(255,255,255,0.08)}
+.opt.correct{background:rgba(34,197,94,0.15)!important;border-color:#22c55e!important}
+.opt.wrong{background:rgba(239,68,68,0.15)!important;border-color:#ef4444!important}
+.feedback{margin-top:10px;font-family:'JetBrains Mono';font-size:12px;display:none}
+.feedback.show{display:block}
+.btn{margin-top:16px;padding:10px 16px;border-radius:12px;background:#fff;color:#000;border:0;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="top"><b>SCIENCE PROJECT - CHEMISTRY</b></div>
+<div class="hero"><h1>METALS & <i>NON-METALS</i></h1><p>Properties, uses and exceptions of elements with interactive revision quiz.</p></div>
+
+<div class="wrap">
+<div class="box"><h4>● Metals</h4><h2>Properties</h2><div class="list"><span><b>Lustrous</b> — shiny surface</span><span><b>Malleable & Ductile</b> — can be made into sheets & wires</span><span><b>Good Conductors</b> — heat and electricity</span><span><b>Sonorous</b> — produces ringing sound</span></div><div class="alert">Exceptions: Sodium is soft, Mercury is liquid at room temperature</div></div>
+<div class="box"><h4>● Non-Metals</h4><h2>Properties</h2><div class="list"><span><b>Non-lustrous</b> — dull appearance</span><span><b>Brittle</b> — breaks easily when solid</span><span><b>Poor Conductors</b> — heat and electricity</span><span><b>Non-sonorous</b> — does not ring</span></div><div class="alert">Exceptions: Graphite conducts electricity, Bromine is liquid, Iodine is lustrous</div></div>
+
+<div class="box full"><h4>● Uses of Metals</h4><div class="chips">
+<div class="chip"><div class="s">Fe</div><div class="n">Iron</div><div class="u">Bridges, nails, machines. Found in blood as haemoglobin.</div></div>
+<div class="chip"><div class="s">Al</div><div class="n">Aluminium</div><div class="u">Foil, utensils. Alloy used for aeroplanes — lightweight & strong.</div></div>
+<div class="chip"><div class="s">Cu</div><div class="n">Copper</div><div class="u">Electrical wires, TVs and computers.</div></div>
+<div class="chip"><div class="s">Au</div><div class="n">Gold</div><div class="u">Ornaments and jewellery — noble metal.</div></div>
+<div class="chip"><div class="s">Hg</div><div class="n">Mercury</div><div class="u">Thermometers — expands on heating.</div></div>
+</div></div>
+
+<div class="box full"><h4>● Uses of Non-Metals & Noble Gases</h4><div class="chips">
+<div class="chip"><div class="s">N</div><div class="n">Nitrogen</div><div class="u">Preserves food, used in fertilizers.</div></div>
+<div class="chip"><div class="s">C</div><div class="n">Carbon</div><div class="u">Diamond for jewellery, graphite for pencils.</div></div>
+<div class="chip"><div class="s">I</div><div class="n">Iodine</div><div class="u">Antiseptic, thyroid gland function.</div></div>
+<div class="chip"><div class="s">He</div><div class="n">Helium</div><div class="u">Hot air balloons and welding.</div></div>
+<div class="chip"><div class="s">Ar</div><div class="n">Argon</div><div class="u">Electric bulbs and tube lights.</div></div>
+</div></div>
+
+<div class="box full"><h4>● Revision Quiz</h4><h2>Test Your Knowledge</h2>
+<div class="mcq" id="mcq1"><div class="q">1. Which metal is the best conductor of electricity?</div><div class="opts">
+<div class="opt" onclick="check(this,false,'mcq1')">A) Iron (Fe)</div>
+<div class="opt" onclick="check(this,true,'mcq1')">B) Silver (Ag)</div>
+<div class="opt" onclick="check(this,false,'mcq1')">C) Aluminium (Al)</div>
+<div class="opt" onclick="check(this,false,'mcq1')">D) Copper (Cu)</div>
+</div><div class="feedback" id="f-mcq1">Correct is Silver. It is not used for wires because it is expensive, so Copper is used.</div></div>
+
+<div class="mcq" id="mcq2"><div class="q">2. Why is aluminium alloy used for aeroplanes?</div><div class="opts">
+<div class="opt" onclick="check(this,true,'mcq2')">A) Lightweight but very strong</div>
+<div class="opt" onclick="check(this,false,'mcq2')">B) Liquid at room temp</div>
+<div class="opt" onclick="check(this,false,'mcq2')">C) Poor conductor</div>
+<div class="opt" onclick="check(this,false,'mcq2')">D) Brittle</div>
+</div><div class="feedback" id="f-mcq2">Aluminium alloy is lightweight and durable.</div></div>
+
+<div class="mcq" id="mcq3"><div class="q">3. Where is iron found in our body?</div><div class="opts">
+<div class="opt" onclick="check(this,false,'mcq3')">A) In bones</div>
+<div class="opt" onclick="check(this,true,'mcq3')">B) Inside red blood cells as haemoglobin</div>
+<div class="opt" onclick="check(this,false,'mcq3')">C) In brain</div>
+<div class="opt" onclick="check(this,false,'mcq3')">D) In skin</div>
+</div><div class="feedback" id="f-mcq3">Iron is found in red blood cells as haemoglobin.</div></div>
+
+<div class="mcq" id="mcq4"><div class="q">4. Which is an exception among non-metals?</div><div class="opts">
+<div class="opt" onclick="check(this,true,'mcq4')">A) Graphite conducts electricity</div>
+<div class="opt" onclick="check(this,false,'mcq4')">B) Oxygen is a gas</div>
+<div class="opt" onclick="check(this,false,'mcq4')">C) Sulphur is brittle</div>
+<div class="opt" onclick="check(this,false,'mcq4')">D) Nitrogen preserves food</div>
+</div><div class="feedback" id="f-mcq4">Graphite is a non-metal but a good conductor of electricity.</div></div>
+<button class="btn" onclick="reset()">Reset Quiz ↺</button>
+</div>
+</div>
+
+<script>
+function check(el, isCorrect, id){
+ const parent=document.getElementById(id);
+ const opts=parent.querySelectorAll('.opt');
+ opts.forEach(o=>{o.classList.remove('correct','wrong');o.style.pointerEvents='none'});
+ if(isCorrect){el.classList.add('correct')}else{el.classList.add('wrong');opts.forEach(o=>{if(o.getAttribute('onclick').includes('true')) o.classList.add('correct')});}
+ document.getElementById('f-'+id).classList.add('show');
+}
+function reset(){document.querySelectorAll('.opt').forEach(o=>{o.classList.remove('correct','wrong');o.style.pointerEvents='auto'});document.querySelectorAll('.feedback').forEach(f=>f.classList.remove('show'));}
+</script>
+</body>
+</html>
