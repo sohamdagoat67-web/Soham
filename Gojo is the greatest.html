@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Language of Chemistry - Class 7 ICSE | Gojo Tribute Version</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#05070f;color:#f8fafc;font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+
+.bg{position:fixed;inset:0;z-index:-3;background:radial-gradient(650px at 15% 15%,rgba(34,211,238,.18),transparent 65%),radial-gradient(700px at 85% 85%,rgba(167,139,250,.18),transparent 65%),radial-gradient(500px at 50% 0%,rgba(248,250,252,.06),transparent 65%),#05070f}
+
+.gojo-bg{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;align-items:center;overflow:hidden;transition:opacity.4s ease}
+.gojo-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(34,211,238,.08),transparent 45%),linear-gradient(90deg,rgba(5,7,15,.55),rgba(5,7,15,.15),rgba(5,7,15,.55));z-index:1}
+.gojo-bg img{width:min(900px,90vw);height:100%;object-fit:contain;object-position:center;opacity:.12;filter:saturate(.75) contrast(1.15) brightness(.75) drop-shadow(0 0 35px rgba(34,211,238,.5)) drop-shadow(0 0 70px rgba(167,139,250,.35));transition:transform .25s ease-out,opacity .4s ease,filter .4s ease}
+.gojo-aura{position:absolute;width:70vw;height:70vw;max-width:900px;max-height:900px;background:radial-gradient(circle,rgba(34,211,238,.12),rgba(167,139,250,.08) 40%,transparent 70%);filter:blur(35px);z-index:0;animation:auraPulse 4s ease-in-out infinite}
+.gojo-bg.energy img{opacity:.28;filter:saturate(1) contrast(1.3) brightness(1) drop-shadow(0 0 55px rgba(34,211,238,.75)) drop-shadow(0 0 90px rgba(167,139,250,.5))}
+.gojo-bg.energy .gojo-aura{transform:scale(1.25);opacity:1}
+@keyframes auraPulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+
+.top{max-width:1100px;margin:auto;padding:26px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.07);position:relative;z-index:2}
+.top b{letter-spacing:2px;font-size:13px;color:#f8fafc}
+.top span{font-family:'JetBrains Mono';font-size:10px;padding:6px 10px;border-radius:20px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.3);color:#22d3ee}
+
+.hero{max-width:1100px;margin:auto;padding:48px 24px 16px;text-align:left;display:grid;grid-template-columns:1.2fr.8fr;gap:20px;align-items:end;position:relative;z-index:2}
+@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center}}
+.hero h1{font-size:clamp(34px,6vw,64px);line-height:.88;letter-spacing:-2.5px}
+.hero h1 i{font-style:normal;background:linear-gradient(90deg,#22d3ee,#f8fafc,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{margin-top:14px;color:#cbd5e1;max-width:520px;font-size:16px;line-height:1.6}
+
+.hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px;font-family:'JetBrains Mono';font-size:11px;color:#e2e8f0;line-height:1.7;position:relative;z-index:2;backdrop-filter:blur(12px)}
+.periodic-icon{font-size:34px;margin-bottom:5px}
+.periodic-hero-card h3{font-family:'Space Grotesk';font-size:22px;margin-bottom:5px}
+.periodic-hero-card p{font-size:13px;line-height:1.5}
+
+.wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px 50px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+}
+
+.column{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.left-column{grid-column:1}
+.right-column{grid-column:2}
+
+.box.full{grid-column:1/-1}
+
+@media(max-width:800px){
+    .wrap{grid-template-columns:1fr}
+    .left-column,.right-column{grid-column:1}
+}
+
+.box{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:24px;padding:22px;backdrop-filter:blur(18px);transition:.25s}
+.box:hover{transform:translateY(-2px);border-color:rgba(34,211,238,.25)}
+.box h4{font-family:'JetBrains Mono';font-size:10px;letter-spacing:2.2px;color:#22d3ee;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.box h4::before{content:'';width:6px;height:6px;border-radius:50%;background:#22d3ee;display:inline-block;box-shadow:0 0 8px #22d3ee}
+.box h2{font-size:22px;margin-bottom:10px;letter-spacing:-.5px}
+
+.list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.list span{background:rgba(0,0,0,.35);border-radius:12px;padding:11px 13px;border-left:3px solid #a78bfa;font-size:13.5px;line-height:1.5}
+
+.alert{margin-top:12px;font-family:'JetBrains Mono';font-size:11px;padding:10px 12px;border-radius:12px;background:rgba(34,211,238,.06);border:1px dashed #22d3ee;color:#f8fafc}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{flex:1 1 155px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:15px;position:relative;overflow:hidden;color:#f8fafc;font-family:'Space Grotesk',sans-serif;text-align:left}
+.chip::after{content:'';position:absolute;top:-20px;right:-20px;width:60px;height:60px;background:radial-gradient(circle,rgba(34,211,238,.12),transparent);border-radius:50%}
+.chip .s{font-size:26px;font-weight:700;letter-spacing:-1px;color:#f8fafc}
+.chip .n{font-size:10px;letter-spacing:1.5px;color:#cbd5e1;text-transform:uppercase;margin-top:2px}
+.chip .u{margin-top:8px;font-size:12.5px;color:#e2e8f0;line-height:1.4}
+
+.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
+@media(max-width:600px){.steps{grid-template-columns:1fr}}
+
+.step{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px}
+.step b{font-family:'JetBrains Mono';font-size:10px;color:#22d3ee}
+.step div{margin-top:6px;font-size:13px;line-height:1.5}
+
+.mcq{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px;margin-bottom:12px}
+.mcq .q{font-weight:700;font-size:14.5px;margin-bottom:12px}
+
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:500px){.opts{grid-template-columns:1fr}}
+
+.opt{padding:10px 12px;border-radius:11px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.09);font-size:13.5px;cursor:pointer;transition:.2s}
+.opt:hover{background:rgba(34,211,238,.08);border-color:#22d3ee}
+.opt.correct{background:rgba(34,197,94,.15)!important;border-color:#22c55e!important}
+.opt.wrong{background:rgba(239,68,68,.15)!important;border-color:#ef4444!important}
+
+.feedback{margin-top:10px;font-family:'JetBrains Mono';font-size:11px;display:none;color:#f8fafc}
+.feedback.show{display:block}
+
+.btn{margin-top:16px;padding:11px 18px;border-radius:12px;background:linear-gradient(90deg,#22d3ee,#a78bfa);color:#05070f;border:0;font-weight:700;cursor:pointer}
+
+.periodic-btn{margin-top:14px;padding:10px 15px;border-radius:12px;border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.1);color:#22d3ee;cursor:pointer;font-weight:700}
+.periodic-btn:hover{background:rgba(34,211,238,.18)}
+
+.periodic-modal,.element-modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:20px}
+.periodic-modal.show,.element-modal.show{display:flex}
+
+.periodic-content{position:relative;max-width:1000px;width:100%;padding:18px;background:rgba(5,7,15,.95);border:1px solid rgba(34,211,238,.25);border-radius:20px;max-height:90vh;overflow-y:auto}
+.periodic-content img{width:100%;display:block;border-radius:12px}
+
+.close-periodic{position:absolute;top:8px;right:8px;width:36px;height:36px;border:0;border-radius:50%;background:#22d3ee;color:#05070f;font-weight:bold;cursor:pointer;z-index:5}
+
+.element-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.element-btn{margin:0;padding:14px;border-radius:12px;border:1px solid rgba(34,211,238,.25);background:rgba(255,255,255,.04);color:#f8fafc;cursor:pointer;text-align:left;transition:.2s}
+.element-btn:hover{border-color:#22d3ee;background:rgba(34,211,238,.1);transform:translateY(-2px)}
+.element-btn strong{display:block;font-size:22px}
+.element-btn span{display:block;color:#cbd5e1;font-size:11px;margin-top:3px}
+
+.chip.interactive{cursor:pointer;transition:.2s}
+.chip.interactive:hover{transform:translateY(-3px);border-color:#22d3ee;background:rgba(34,211,238,.07)}
+
+.element-detail{padding:18px;background:rgba(0,0,0,.25);border-radius:16px;border:1px solid rgba(255,255,255,.08)}
+.element-detail.big{font-size:42px;font-weight:700;color:#22d3ee}
+
+.criss-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
+.criss-grid label{display:block;font-size:12px;color:#cbd5e1;margin-bottom:6px}
+.criss-grid select{width:100%;padding:11px 12px;border-radius:12px;background:#05070f;color:#f8fafc;border:1px solid rgba(255,255,255,.1)}
+
+.criss-btn{margin-top:14px;padding:10px 15px;border-radius:12px;border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.1);color:#22d3ee;cursor:pointer;font-weight:700}
+
+.formula-result{margin-top:14px;padding:16px;border-radius:16px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.08);text-align:center}
+.formula-result .formula{font-size:32px;font-weight:700;color:#22d3ee}
+
+.score{margin-top:12px;font-family:'JetBrains Mono';color:#22d3ee;font-size:12px}
+
+@media(max-width:700px){
+    .element-grid{grid-template-columns:repeat(2,1fr)}
+    .gojo-bg img{width:min(720px,125vw);opacity:.13}
+}
+
+@media(max-width:600px){
+    .criss-grid{grid-template-columns:1fr}
+}
+
+@media(prefers-reduced-motion:reduce){
+    .gojo-bg img{transition:none!important;transform:none!important}
+    .gojo-aura{animation:none!important}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="gojo-bg" id="gojoBg">
+<div class="gojo-aura"></div>
+<img src="https://i.pinimg.com/736x/71/8c/06/718c06f5aa545b4ddd7d459fe23d816e.jpg" alt="Gojo Satoru">
+</div>
+
+<div class="top">
+<b>ICSE CHEMISTRY • GRADE 7 • 2025-26</b>
+<span>GOJO TRIBUTE VERSION</span>
+</div>
+
+<div class="hero">
+
+<div>
+<h1>LANGUAGE OF <i>CHEMISTRY</i></h1>
+<p style="margin-top:8px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:2px;color:#22d3ee">gojo tribute version • limitless chemistry domain</p>
+<p>Not just letters — it's the code chemists use to write reactions. Learn symbols, valency, radicals & equations the ICSE way.</p>
+</div>
+
+<div class="hero-card periodic-hero-card">
+<div class="periodic-icon">⚛</div>
+<h3>Periodic Table</h3>
+<p>Explore the elements and their symbols, atomic numbers and properties.</p>
+<button class="periodic-btn" onclick="openPeriodicTable()">View Periodic Table →</button>
+</div>
+
+</div>
+
+<div class="periodic-modal" id="periodicModal">
+<div class="periodic-content">
+<button class="close-periodic" onclick="closePeriodicTable()">✕</button>
+<img src="https://t4.ftcdn.net/jpg/02/83/71/19/360_F_283711990_bgGMIymjqXRKnrNy0gpQRnigsr2si7cA.jpg" alt="Periodic Table of the Elements">
+<h2 style="margin-top:18px">Click an element to explore</h2>
+<p style="color:#cbd5e1;margin-top:5px">ICSE must-know elements from this page.</p>
+
+<div class="element-grid">
+<button class="element-btn" onclick="showElement('H')"><strong>H</strong><span>Hydrogen • 1</span></button>
+<button class="element-btn" onclick="showElement('O')"><strong>O</strong><span>Oxygen • 8</span></button>
+<button class="element-btn" onclick="showElement('Na')"><strong>Na</strong><span>Sodium • 11</span></button>
+<button class="element-btn" onclick="showElement('Mg')"><strong>Mg</strong><span>Magnesium • 12</span></button>
+<button class="element-btn" onclick="showElement('Al')"><strong>Al</strong><span>Aluminium • 13</span></button>
+<button class="element-btn" onclick="showElement('K')"><strong>K</strong><span>Potassium • 19</span></button>
+<button class="element-btn" onclick="showElement('Ca')"><strong>Ca</strong><span>Calcium • 20</span></button>
+<button class="element-btn" onclick="showElement('Fe')"><strong>Fe</strong><span>Iron • 26</span></button>
+<button class="element-btn" onclick="showElement('Cu')"><strong>Cu</strong><span>Copper • 29</span></button>
+<button class="element-btn" onclick="showElement('Ag')"><strong>Ag</strong><span>Silver • 47</span></button>
+</div>
+
+</div>
+</div>
+
+<div class="element-modal" id="elementModal">
+<div class="periodic-content">
+<button class="close-periodic" onclick="closeElement()">✕</button>
+<div id="elementDetail" class="element-detail"></div>
+</div>
+</div>
+
+<div class="wrap">
+
+<!-- 01 -->
+<div class="box">
+<h4>01 - Concept</h4>
+<h2>Why a New Language?</h2>
+
+<div class="list">
+<span>Speed: Writing "Sodium Chloride" is long, "NaCl" is instant</span>
+<span>Universal: Same symbol understood in India, Japan, USA</span>
+<span>Origin: Berzelius (1813) gave modern 1-2 letter system</span>
+</div>
+
+<div class="alert">ICSE Key: Language = Symbols + Formulae + Equations</div>
+</div>
+
+<!-- 02 -->
+<div class="box">
+<h4>02 - Symbols</h4>
+<h2>How to Write Correctly</h2>
+
+<div class="list">
+<span>Rule A: First letter CAPITAL only - H for Hydrogen</span>
+<span>Rule B: Two-letter element symbols use 1st Capital + 2nd Small - Co is Cobalt; CO is Carbon Monoxide</span>
+<span>Rule C: Latin roots - Ferrum=Fe, Natrium=Na, Kalium=K</span>
+</div>
+
+<div class="alert">Trick: Element symbols are case-sensitive. NaCl = Na + Cl, while CO is the formula for carbon monoxide.</div>
+</div>
+
+<!-- 03 -->
+<div class="box full">
+<h4>03 - Elements Table (ICSE Must-Know)</h4>
+
+<div class="chips">
+
+<button class="chip interactive" onclick="showElement('H')">
+<div class="s">H • 1</div>
+<div class="n">Hydrogen</div>
+<div class="u">Valency 1 - lightest gas</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('O')">
+<div class="s">O • 8</div>
+<div class="n">Oxygen</div>
+<div class="u">Valency 2 - supporter of life</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('Na')">
+<div class="s">Na • 11</div>
+<div class="n">Sodium</div>
+<div class="u">Natrium - reacts with water</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('Mg')">
+<div class="s">Mg • 12</div>
+<div class="n">Magnesium</div>
+<div class="u">Valency 2 - ribbon burns bright</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('Al')">
+<div class="s">Al • 13</div>
+<div class="n">Aluminium</div>
+<div class="u">Valency 3 - foils & planes</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('K')">
+<div class="s">K • 19</div>
+<div class="n">Potassium</div>
+<div class="u">Kalium - valency 1</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('Ca')">
+<div class="s">Ca • 20</div>
+<div class="n">Calcium</div>
+<div class="u">Bones - valency 2</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('Fe')">
+<div class="s">Fe • 26</div>
+<div class="n">Iron</div>
+<div class="u">Ferrum - 2,3 variable</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('Cu')">
+<div class="s">Cu • 29</div>
+<div class="n">Copper</div>
+<div class="u">Cuprum - wiring - 1,2</div>
+</button>
+
+<button class="chip interactive" onclick="showElement('Ag')">
+<div class="s">Ag • 47</div>
+<div class="n">Silver</div>
+<div class="u">Argentum - best conductor</div>
+</button>
+
+</div>
+</div>
+
+<!-- LEFT COLUMN -->
+<div class="column left-column">
+
+<!-- 04 -->
+<div class="box">
+<h4>04 - Valency</h4>
+<h2>How Many Hands?</h2>
+
+<div class="list">
+<span>1: H, Na, K, Cl - can hold 1 hand</span>
+<span>2: O, Mg, Ca - holds 2 hands</span>
+<span>3: Al, N - holds 3</span>
+<span>4: C, Si - holds 4</span>
+<span>Example: Mg²⁺ + Cl⁻ → MgCl₂</span>
+<span>Example: Al³⁺ + O²⁻ → Al₂O₃</span>
+</div>
+</div>
+
+<!-- 05 -->
+<div class="box">
+<h4>05 - Radicals</h4>
+<h2>Group Acting as One</h2>
+
+<div class="list">
+<span>Basic: NH4+ Ammonium</span>
+<span>Acidic (1): OH- Hydroxyl, NO3- Nitrate</span>
+<span>Acidic (2): SO4 2- Sulphate, CO3 2- Carbonate</span>
+<span>Acidic (3): PO4 3- Phosphate</span>
+<span>Example: Ca²⁺ + CO₃²⁻ → CaCO₃</span>
+<span>Example: Mg²⁺ + OH⁻ → Mg(OH)₂</span>
+</div>
+
+<div class="alert">Radical = a group of atoms that acts as a single unit in a compound.</div>
+</div>
+
+<!-- 07 -->
+<div class="box">
+<h4>07 - Chemical Equation</h4>
+<h2>Reaction in Short</h2>
+
+<div class="list">
+<span>Reactants (LHS) -> Products (RHS). Example: C + O2 -> CO2</span>
+<span>Must be BALANCED - same number of atoms both sides - Law of Conservation</span>
+<span>Example: 2H2 + O2 -> 2H2O (4H, 2O both sides)</span>
+</div>
+</div>
+
+</div>
+
+<!-- RIGHT COLUMN -->
+<div class="column right-column">
+
+<!-- 06 -->
+<div class="box">
+<h4>06 - Formula Writing</h4>
+<h2>Criss-Cross Trick</h2>
+
+<div class="steps">
+
+<div class="step">
+<b>STEP 1</b>
+<div>Write symbols side by side with valency on top</div>
+</div>
+
+<div class="step">
+<b>STEP 2</b>
+<div>Cross valencies - one valency goes to the other</div>
+</div>
+
+<div class="step">
+<b>STEP 3</b>
+<div>Simplify if both are divisible</div>
+</div>
+
+</div>
+
+<div class="chips" style="margin-top:14px">
+
+<div class="chip">
+<div class="s">NaCl</div>
+<div class="n">Sodium Chloride</div>
+<div class="u">Na1 x Cl1 → NaCl</div>
+</div>
+
+<div class="chip">
+<div class="s">CaCO3</div>
+<div class="n">Calcium Carbonate</div>
+<div class="u">Ca2 x CO3 2 → simplify → CaCO3</div>
+</div>
+
+<div class="chip">
+<div class="s">Al2O3</div>
+<div class="n">Aluminium Oxide</div>
+<div class="u">Al3 x O2 → Al2O3</div>
+</div>
+
+<div class="chip">
+<div class="s">Mg(OH)2</div>
+<div class="n">Magnesium Hydroxide</div>
+<div class="u">Mg2 x OH1 → Mg(OH)2</div>
+</div>
+
+</div>
+
+<div class="alert">Choose two ions and let the page build the formula.</div>
+
+<div class="criss-grid">
+
+<div>
+<label for="cation">Positive ion</label>
+<select id="cation">
+<option value="Na:1">Na+ — Sodium</option>
+<option value="Mg:2">Mg2+ — Magnesium</option>
+<option value="Al:3">Al3+ — Aluminium</option>
+<option value="Ca:2">Ca2+ — Calcium</option>
+<option value="Fe:2">Fe2+ — Iron(II)</option>
+</select>
+</div>
+
+<div>
+<label for="anion">Negative ion</label>
+<select id="anion">
+<option value="Cl:1">Cl- — Chloride</option>
+<option value="O:2">O2- — Oxide</option>
+<option value="OH:1">OH- — Hydroxide</option>
+<option value="NO3:1">NO3- — Nitrate</option>
+<option value="CO3:2">CO3 2- — Carbonate</option>
+<option value="PO4:3">PO4 3- — Phosphate</option>
+</select>
+</div>
+
+</div>
+
+<button class="criss-btn" onclick="buildFormula()">CRISS-CROSS →</button>
+
+<div class="formula-result" id="formulaResult">
+<div class="formula">NaCl</div>
+<small>Select ions, then press CRISS-CROSS.</small>
+</div>
+
+</div>
+
+<!-- 08 -->
+<div class="box">
+<h4>08 - Quick Check</h4>
+<h2>Is It Clear Now?</h2>
+
+<div class="mcq" id="mcq1">
+<div class="q">1. Which is correct for Potassium?</div>
+
+<div class="opts">
+<div class="opt" onclick="check(this,false,'mcq1')">A) P</div>
+<div class="opt" onclick="check(this,true,'mcq1')">B) K - from Kalium</div>
+<div class="opt" onclick="check(this,false,'mcq1')">C) Pt</div>
+<div class="opt" onclick="check(this,false,'mcq1')">D) K is wrong</div>
+</div>
+
+<div class="feedback" id="f-mcq1">K is Kalium. P is Phosphorus!</div>
+</div>
+
+<div class="mcq" id="mcq2">
+<div class="q">2. Al2O3 is formed how?</div>
+
+<div class="opts">
+<div class="opt" onclick="check(this,true,'mcq2')">A) Al3+ + O2- criss-cross</div>
+<div class="opt" onclick="check(this,false,'mcq2')">B) Al + O directly</div>
+<div class="opt" onclick="check(this,false,'mcq2')">C) Al2 + O3</div>
+<div class="opt" onclick="check(this,false,'mcq2')">D) AlO</div>
+</div>
+
+<div class="feedback" id="f-mcq2">Al valency 3, O valency 2 -> cross -> Al2O3.</div>
+</div>
+
+<div class="mcq" id="mcq3">
+<div class="q">3. PO4 3- valency?</div>
+
+<div class="opts">
+<div class="opt" onclick="check(this,false,'mcq3')">A) 1</div>
+<div class="opt" onclick="check(this,false,'mcq3')">B) 2</div>
+<div class="opt" onclick="check(this,true,'mcq3')">C) 3</div>
+<div class="opt" onclick="check(this,false,'mcq3')">D) 4</div>
+</div>
+
+<div class="feedback" id="f-mcq3">Phosphate has valency 3.</div>
+</div>
+
+<div class="mcq" id="mcq4">
+<div class="q">4. Balanced equation?</div>
+
+<div class="opts">
+<div class="opt" onclick="check(this,true,'mcq4')">A) 2Mg + O2 -> 2MgO</div>
+<div class="opt" onclick="check(this,false,'mcq4')">B) Mg + O2 -> MgO</div>
+<div class="opt" onclick="check(this,false,'mcq4')">C) Mg + O -> MgO</div>
+<div class="opt" onclick="check(this,false,'mcq4')">D) 2Mg + O -> MgO</div>
+</div>
+
+<div class="feedback" id="f-mcq4">Correct balanced: 2 Mg and 2 O both sides.</div>
+</div>
+
+<button class="btn" onclick="reset()">Reset Quiz</button>
+<div class="score" id="score">Score: 0 / 4</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+const elements={
+H:{symbol:'H',name:'Hydrogen',atomic:1,valency:'1',note:'Lightest gas'},
+O:{symbol:'O',name:'Oxygen',atomic:8,valency:'2',note:'Supporter of life'},
+Na:{symbol:'Na',name:'Sodium',atomic:11,valency:'1',note:'Natrium; reacts with water'},
+Mg:{symbol:'Mg',name:'Magnesium',atomic:12,valency:'2',note:'Ribbon burns bright'},
+Al:{symbol:'Al',name:'Aluminium',atomic:13,valency:'3',note:'Used in foils & planes'},
+K:{symbol:'K',name:'Potassium',atomic:19,valency:'1',note:'Kalium; valency 1'},
+Ca:{symbol:'Ca',name:'Calcium',atomic:20,valency:'2',note:'Important for bones'},
+Fe:{symbol:'Fe',name:'Iron',atomic:26,valency:'2, 3',note:'Ferrum; variable valency'},
+Cu:{symbol:'Cu',name:'Copper',atomic:29,valency:'1, 2',note:'Cuprum; used in wiring'},
+Ag:{symbol:'Ag',name:'Silver',atomic:47,valency:'1',note:'Argentum; excellent conductor'}
+};
+
+function openPeriodicTable(){
+document.getElementById('periodicModal').classList.add('show');
+document.body.style.overflow='hidden'
+}
+
+function closePeriodicTable(){
+document.getElementById('periodicModal').classList.remove('show');
+document.body.style.overflow=''
+}
+
+function showElement(k){
+const e=elements[k];
+if(!e)return;
+
+document.getElementById('elementDetail').innerHTML=
+'<div class="big">'+e.symbol+'</div>'+
+'<h2>'+e.name+'</h2>'+
+'<p><strong>Atomic number:</strong> '+e.atomic+'</p>'+
+'<p><strong>Valency:</strong> '+e.valency+'</p>'+
+'<p><strong>ICSE note:</strong> '+e.note+'</p>';
+
+document.getElementById('elementModal').classList.add('show');
+document.body.style.overflow='hidden'
+}
+
+function closeElement(){
+document.getElementById('elementModal').classList.remove('show');
+document.body.style.overflow=''
+}
+
+function gcd(a,b){
+while(b){
+let t=a%b;
+a=b;
+b=t
+}
+return a
+}
+
+function buildFormula(){
+const c=document.getElementById('cation'),
+a=document.getElementById('anion');
+
+if(!c||!a)return;
+
+const[cs,cv]=c.value.split(':'),
+[as,av]=a.value.split(':');
+
+const x=parseInt(cv,10),
+y=parseInt(av,10),
+g=gcd(x,y),
+l=y/g,
+r=x/g;
+
+let lp=l===1?cs:cs+l,
+rp=r===1?as:(as.length>1?'('+as+')'+r:as+r);
+
+document.getElementById('formulaResult').innerHTML=
+'<div class="formula">'+lp+rp+'</div>'+
+'<small>'+cs+' valency '+cv+' × '+as+' valency '+av+' → simplified criss-cross formula</small>'
+}
+
+const answers={};
+let score=0;
+
+function check(el,ok,id){
+const p=document.getElementById(id),
+opts=p.querySelectorAll('.opt');
+
+opts.forEach(o=>o.classList.remove('correct','wrong'));
+
+if(answers[id]===true)score--;
+
+answers[id]=ok;
+
+if(ok){
+el.classList.add('correct');
+score++
+}else{
+el.classList.add('wrong');
+opts.forEach(o=>{
+if((o.getAttribute('onclick')||'').includes('true'))
+o.classList.add('correct')
+})
+}
+
+document.getElementById('f-'+id).classList.add('show');
+document.getElementById('score').textContent='Score: '+score+' / 4'
+}
+
+function reset(){
+Object.keys(answers).forEach(k=>delete answers[k]);
+score=0;
+
+document.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','wrong'));
+document.querySelectorAll('.feedback').forEach(f=>f.classList.remove('show'));
+
+document.getElementById('score').textContent='Score: 0 / 4';
+
+document.getElementById('formulaResult').innerHTML=
+'<div class="formula">NaCl</div>'+
+'<small>Select ions, then press CRISS-CROSS.</small>'
+}
+
+document.addEventListener('keydown',e=>{
+if(e.key==='Escape'){
+closePeriodicTable();
+closeElement()
+}
+});
+
+document.getElementById('periodicModal').addEventListener('click',e=>{
+if(e.target.id==='periodicModal')closePeriodicTable()
+});
+
+document.getElementById('elementModal').addEventListener('click',e=>{
+if(e.target.id==='elementModal')closeElement()
+});
+
+const gojoBg=document.getElementById('gojoBg'),
+gojoImage=gojoBg.querySelector('img');
+
+document.addEventListener('mousemove',e=>{
+if(!gojoImage)return;
+
+const x=(e.clientX/window.innerWidth-.5)*2,
+y=(e.clientY/window.innerHeight-.5)*2;
+
+gojoImage.style.transform=
+`translate(${x*10}px,${y*7}px) scale(1.02)`;
+
+const d=Math.sqrt(x*x+y*y);
+
+gojoBg.style.opacity=d<.35?'1':'.9'
+});
+
+document.addEventListener('click',()=>{
+gojoBg.classList.add('energy');
+setTimeout(()=>gojoBg.classList.remove('energy'),750)
+});
+</script>
+
+</body>
+</html>
