@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oxygen | Mishika Jain</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#e0f7fa,#e8eaf6);color:#183153}header{background:linear-gradient(120deg,#00796b,#1565c0);color:white;text-align:center;padding:35px 15px}header h1{font-size:42px;margin:0}header p{font-size:18px}main{max-width:950px;margin:25px auto;padding:15px}section{background:white;padding:22px;margin-bottom:22px;border-radius:16px;box-shadow:0 5px 15px #00000012}h2{color:#00796b}.fact{background:#e0f2f1;padding:14px;border-radius:10px;margin:10px 0}.equation{text-align:center;font-size:24px;font-weight:bold;background:#e3f2fd;padding:20px;border-radius:12px}.video{width:100%;aspect-ratio:16/9;border:0;border-radius:12px}button,.link-button{display:inline-block;background:#00796b;color:white;padding:12px 18px;border:0;border-radius:8px;cursor:pointer;text-decoration:none;margin-top:10px}button:hover,.link-button:hover{background:#004d40}.question{margin:18px 0}label{display:block;margin:9px 0}#result{font-weight:bold;margin-top:15px}footer{text-align:center;padding:20px;background:#183153;color:white}
+</style>
+</head>
+<body>
+<header><h1>OXYGEN</h1><p>Discover the element that keeps our world alive!</p><p>Created by Mishika Jain</p></header>
+<main>
+<section><h2>🌍 What is Oxygen?</h2><p>Oxygen is a chemical element essential for the respiration of most living organisms. It is represented by the symbol <b>O</b> and has atomic number <b>8</b>.</p><div class="fact"><b>Symbol:</b> O</div><div class="fact"><b>Atomic number:</b> 8</div><div class="fact"><b>Molecular formula of oxygen gas:</b> O₂</div><div class="fact"><b>State at room temperature:</b> Gas</div><div class="fact"><b>Discovery:</b> Oxygen was independently discovered by Carl Wilhelm Scheele and Joseph Priestley in the 18th century.</div></section>
+<section><h2>🔬 Properties of Oxygen</h2><ul><li>It is colourless, odourless and tasteless.</li><li>It supports combustion but does not itself burn.</li><li>It is slightly soluble in water.</li><li>It combines with many elements to form oxides.</li><li>It makes up about 21% of Earth's atmosphere by volume.</li></ul></section>
+<section><h2>🧪 Catalytic Decomposition of Hydrogen Peroxide</h2><p>Hydrogen peroxide breaks down into water and oxygen. Manganese dioxide can act as a catalyst, speeding up the reaction without being used up overall.</p><div class="equation">2H₂O₂ → 2H₂O + O₂</div><p><b>Observation:</b> Bubbles of oxygen gas are produced.</p><p><b>Type of reaction:</b> Decomposition reaction.</p><p><b>Role of catalyst:</b> It increases the reaction rate.</p><h3>▶ Watch the experiment</h3>
+<div style="text-align: center; margin: 25px 0;">
+  <a href="https://www.youtube.com/watch?v=3PpYfPLo9jQ"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="display: inline-block; padding: 14px 28px; background: #d62828; color: white; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 10px;">
+    ▶ Watch Catalytic Decomposition Video
+  </a>
+</div><p></p><a class="link-button" href="https://www.youtube.com/watch?v=3PpYfPLo9jQ" target="_blank" rel="noopener noreferrer"></a></section>
+<section><h2>🌱 Importance of Oxygen</h2><ul><li>Essential for aerobic respiration.</li><li>Used in hospitals to support patients who need extra oxygen.</li><li>Supports combustion in many processes.</li><li>Used in steelmaking and certain industrial processes.</li><li>Liquid oxygen is used as an oxidiser in some rocket systems.</li></ul></section>
+<section><h2>🧠 Test Your Knowledge!</h2><form id="quiz" onsubmit="return checkAnswers()"><div class="question"><p><b>1. What is the chemical symbol of oxygen?</b></p><label><input type="radio" name="q1" value="a"> Ox</label><label><input type="radio" name="q1" value="b"> O</label><label><input type="radio" name="q1" value="c"> Og</label></div><div class="question"><p><b>2. Which gas is released when hydrogen peroxide decomposes?</b></p><label><input type="radio" name="q2" value="a"> Nitrogen</label><label><input type="radio" name="q2" value="b"> Carbon dioxide</label><label><input type="radio" name="q2" value="c"> Oxygen</label></div><div class="question"><p><b>3. What is the role of a catalyst?</b></p><label><input type="radio" name="q3" value="a"> To speed up a reaction</label><label><input type="radio" name="q3" value="b"> To become the main product</label><label><input type="radio" name="q3" value="c"> To stop every reaction</label></div><button type="submit">Check My Answers</button></form><p id="result"></p></section>
+</main><footer><p>Oxygen — The element that helps life thrive 🌎</p><p>Designed by Mishika Jain</p></footer>
+````html
+
+<script>
+function checkAnswers() {
+    let score = 0;
+
+    const answers = {
+        q1: "b",
+        q2: "c",
+        q3: "a"
+    };
+
+    for (let question in answers) {
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (selected && selected.value === answers[question]) {
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerText =
+        "You scored " + score + " out of 3!";
+
+    return false;
+}
+</script>
+</body>
+</html>
