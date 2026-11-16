@@ -1,0 +1,961 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Physical and Chemical Changes Studio - Riya Gaikwad 7B</title> 
+<style> 
+:root { 
+--orange-primary: #FF7A00; 
+--orange-light: #FFF4EB; 
+--blue-primary: #0066CC; 
+--blue-light: #EBF5FF; 
+--dark-text: #2D3748; 
+--white: #FFFFFF; 
+} 
+body { 
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+background: linear-gradient(135deg, #FFF4EB 0%, #EBF5FF 100%); 
+color: var(--dark-text); 
+margin: 0; 
+padding: 20px; 
+line-height: 1.6; 
+} 
+.container { 
+max-width: 950px; 
+margin: 0 auto; 
+background: var(--white); 
+padding: 40px; 
+border-radius: 20px; 
+box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+border: 2px solid rgba(0, 102, 204, 0.1); 
+} 
+/* Fancy Font Title Styling */ 
+h1 { 
+font-family: 'Comic Sans MS', 'Impact', 'Georgia', sans-serif; 
+text-align: center; 
+font-size: 2.8rem; 
+margin-bottom: 30px; 
+background: linear-gradient(45deg, var(--orange-primary), var(--blue-primary)); 
+-webkit-background-clip: text; 
+-webkit-text-fill-color: transparent; 
+text-transform: capitalize; 
+letter-spacing: 1px; 
+} 
+h2 { 
+font-family: 'Georgia', serif; 
+color: var(--blue-primary); 
+border-bottom: 3px solid var(--orange-primary); 
+padding-bottom: 5px; 
+display: inline-block; 
+margin-top: 40px; 
+margin-bottom: 20px; 
+} 
+h3 { 
+font-family: 'Segoe UI', sans-serif; 
+color: var(--orange-primary); 
+margin-top: 20px; 
+margin-bottom: 10px; 
+} 
+p { 
+margin-bottom: 15px; 
+text-align: justify; 
+} 
+.info-block { 
+background-color: #F8FAFC; 
+padding: 20px; 
+border-radius: 12px; 
+border-left: 5px solid var(--blue-primary); 
+margin-bottom: 25px; 
+} 
+/* Table Design */ 
+.table-container { 
+overflow-x: auto; 
+margin: 20px 0; 
+border-radius: 12px; 
+box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+} 
+table { 
+width: 100%; 
+border-collapse: collapse; 
+background: var(--white); 
+text-align: left; 
+} 
+th, td { 
+padding: 15px 20px; 
+border: 1px solid #E2E8F0; 
+} 
+th { 
+background-color: var(--blue-primary); 
+color: var(--white); 
+font-weight: 600; 
+} 
+tr:nth-child(even) { 
+background-color: #F8FAFC; 
+} 
+/* Candle Info Card Layout */ 
+.candle-section { 
+display: grid; 
+grid-template-columns: 1fr 1fr; 
+gap: 30px; 
+align-items: center; 
+background: var(--orange-light); 
+padding: 25px; 
+border-radius: 15px; 
+border-left: 5px solid var(--orange-primary); 
+margin: 30px 0; 
+} 
+.video-box-simulated { 
+background: #000; 
+color: #fff; 
+border-radius: 10px; 
+height: 200px; 
+display: flex; 
+flex-direction: column; 
+justify-content: center; 
+align-items: center; text-align: center; 
+padding: 20px; 
+box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+border: 3px solid var(--orange-primary); 
+} 
+.play-icon { 
+font-size: 3rem; 
+color: var(--orange-primary); 
+margin-bottom: 10px; 
+cursor: pointer;
+transition: transform 0.2s;
+}
+.play-icon:hover {
+transform: scale(1.1);
+}
+/* Block Configuration for Quiz Components */ 
+.quiz-card { 
+background: var(--blue-light); 
+border-left: 5px solid var(--blue-primary); 
+padding: 25px; 
+border-radius: 15px; 
+margin-bottom: 30px; 
+} 
+.quiz-item { 
+margin-bottom: 30px; 
+padding-bottom: 25px; 
+border-bottom: 2px dashed rgba(0, 102, 204, 0.15); 
+} 
+.quiz-item:last-child { 
+margin-bottom: 0; 
+padding-bottom: 0; 
+border-bottom: none; 
+} 
+.question { 
+font-weight: 600; 
+font-size: 1.1rem; 
+margin-bottom: 15px; 
+} 
+.options-group { 
+display: flex; 
+flex-direction: column; 
+gap: 10px; 
+} 
+.option-label { 
+background: var(--white); 
+padding: 12px 20px; 
+border-radius: 8px; 
+cursor: pointer; 
+border: 1px solid #CBD5E1; 
+transition: all 0.2s ease; 
+display: flex; 
+align-items: center; 
+gap: 10px; 
+} 
+.option-label:hover { 
+border-color: var(--blue-primary); 
+background: #F0F7FF; 
+} 
+.check-btn { 
+margin-top: 15px; 
+background: var(--orange-primary); 
+color: var(--white); 
+border: none; 
+padding: 10px 20px; 
+font-size: 1rem; 
+font-weight: 600; 
+border-radius: 6px; 
+cursor: pointer; 
+} 
+.feedback { 
+margin-top: 12px; 
+font-weight: 600; 
+display: none; 
+} 
+.correct { 
+color: #22C55E; 
+} 
+.incorrect { 
+color: #EF4444; 
+} 
+/* Dynamic Score Dashboard Styling */
+.score-board {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: var(--white);
+padding: 15px 20px;
+border-radius: 10px;
+margin-bottom: 20px;
+border: 1px solid #CBD5E1;
+font-weight: 600;
+}
+.score-count {
+color: var(--blue-primary);
+font-size: 1.2rem;
+}
+/* Lab Simulator Styles */
+.sim-controls {
+display: flex;
+gap: 15px;
+margin-bottom: 20px;
+flex-wrap: wrap;
+}
+.sim-btn {
+background: var(--blue-primary);
+color: var(--white);
+border: none;
+padding: 12px 24px;
+font-weight: 600;
+border-radius: 8px;
+cursor: pointer;
+transition: background 0.2s;
+}
+.sim-btn:hover {
+background: #004C99;
+}
+.sim-btn.active-sim {
+background: var(--orange-primary);
+}
+.sim-display {
+background: #F8FAFC;
+border: 2px dashed #CBD5E1;
+border-radius: 12px;
+padding: 30px;
+text-align: center;
+min-height: 120px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.molecule-box {
+display: flex;
+gap: 10px;
+margin-top: 15px;
+font-size: 1.5rem;
+}
+/* Signature Row */ 
+.footer-signature { 
+text-align: center; 
+margin-top: 50px; 
+padding-top: 20px; 
+border-top: 2px dashed rgba(0, 102, 204, 0.2); 
+font-family: 'Comic Sans MS', sans-serif; 
+font-size: 1.4rem; 
+color: var(--dark-text); 
+} 
+.student-name { 
+color: var(--orange-primary); 
+font-weight: 600; 
+} 
+.student-class { 
+color: var(--blue-primary); 
+font-weight: 600; 
+} 
+@media (max-width: 768px) { 
+.candle-section { 
+grid-template-columns: 1fr; 
+} 
+.container { 
+padding: 20px; 
+} 
+h1 { 
+font-size: 2rem; 
+} 
+} 
+</style> 
+</head> 
+<body> 
+<div class="container"> 
+<h1>Exploring Physical & Chemical Changes</h1> 
+
+<!-- Fundamental Concepts Block --> 
+<h2>1. What is a Change?</h2> 
+<div class="info-block"> 
+<p>In science, a <strong>change</strong> is the transformation of a substance from one state, form, or composition to another.</p> 
+<h3>Physical Changes</h3> 
+<p>Alters only <strong>physical properties</strong> (shape, size, state). <strong>No new substance is created</strong>. Molecules remain identical. These transformations are usually temporary and easy to reverse (e.g., ice melting into water).</p> 
+<h3>Chemical Changes</h3> 
+<p>A reaction occurs to build <strong>entirely new substances</strong> with distinct chemical properties. Atomic bonds break and rearrange. These are typically permanent and hard to reverse (e.g., unexpected color shifts, gas bubbles, or light emissions).</p> 
+</div> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Molecule Lab</title>
+    <style>
+        :root {
+            --orange-primary: #e67e22;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f7;
+            color: var(--dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .lab-container {
+            max-width: 650px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+
+        .info-block {
+            border-left: 5px solid var(--orange-primary);
+            background: #fffaf5;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .sim-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .sim-btn {
+            background: #ffffff;
+            border: 2px solid var(--orange-primary);
+            color: var(--orange-primary);
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .sim-btn:hover {
+            background: var(--orange-primary);
+            color: #ffffff;
+        }
+
+        .sim-btn.active {
+            background: var(--orange-primary);
+            color: #ffffff;
+            box-shadow: 0 0 8px rgba(230, 126, 34, 0.4);
+        }
+
+        .sim-btn.reset-btn {
+            border-color: #7f8c8d;
+            color: #7f8c8d;
+        }
+
+        .sim-btn.reset-btn:hover {
+            background: #7f8c8d;
+            color: #ffffff;
+        }
+
+        .sim-display {
+            background: #ffffff;
+            border: 2px solid var(--border);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        #status-text {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .molecule-box {
+            width: 100%;
+            height: 300px;
+            background: #1a202c;
+            border-radius: 6px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Molecule Lab</title>
+    <style>
+        :root {
+            --orange-primary: #e67e22;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f7;
+            color: var(--dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .lab-container {
+            max-width: 650px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+
+        .info-block {
+            border-left: 5px solid var(--orange-primary);
+            background: #fffaf5;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .sim-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .sim-btn {
+            background: #ffffff;
+            border: 2px solid var(--orange-primary);
+            color: var(--orange-primary);
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .sim-btn:hover {
+            background: var(--orange-primary);
+            color: #ffffff;
+        }
+
+        .sim-btn.active {
+            background: var(--orange-primary);
+            color: #ffffff;
+            box-shadow: 0 0 8px rgba(230, 126, 34, 0.4);
+        }
+
+        .sim-btn.reset-btn {
+            border-color: #7f8c8d;
+            color: #7f8c8d;
+        }
+
+        .sim-btn.reset-btn:hover {
+            background: #7f8c8d;
+            color: #ffffff;
+        }
+
+        .sim-display {
+            background: #ffffff;
+            border: 2px solid var(--border);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        #status-text {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .molecule-box {
+            width: 100%;
+            height: 300px;
+            background: #1a202c;
+            border-radius: 6px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="lab-container">
+    <h2>2. Interactive Molecule Lab</h2>
+    <div class="info-block">
+        <p style="margin-top: 0; margin-bottom: 15px;">Click the buttons below to trigger structural changes and observe what happens to the substances at a molecular level!</p>
+        
+        <div class="sim-controls">
+            <button class="sim-btn" onclick="runSimulation('physical', this)">Melting Ice (Physical)</button>
+            <button class="sim-btn" onclick="runSimulation('chemical', this)">Burning Wood (Chemical)</button>
+            <button class="sim-btn reset-btn" onclick="resetSimulation(this)">Reset Lab</button>
+        </div>
+        
+        <div class="sim-display" id="lab-display">
+            <strong>Status:</strong> <span id="status-text">Lab ready. Select a change above to begin the experiment.</span>
+            <div class="molecule-box" id="molecule-output">
+                <canvas id="labCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('labCanvas');
+    const ctx = canvas.getContext('2d');
+    const statusText = document.getElementById('status-text');
+
+    let animationFrameId;
+    let particles = [];
+    let currentMode = 'ready'; // ready, physical, chemical
+
+    function resizeCanvas() {
+        // Fallback default metrics if client widths compute temporarily at 0
+        canvas.width = canvas.parentElement.clientWidth || 550;
+        canvas.height = canvas.parentElement.clientHeight || 300;
+    }
+
+    // Clear previous simulation configurations
+    function clearActiveButtons() {
+        document.querySelectorAll('.sim-btn').forEach(btn => btn.classList.remove('active'));
+    }
+
+    // Set up particles grid explicitly checking sizes
+    function initReadyState() {
+        resizeCanvas();
+        particles = [];
+        const rows = 5;
+        const cols = 8;
+        const spacingX = 40;
+        const spacingY = 30;
+        const startX = (canvas.width - (cols - 1) * spacingX) / 2;
+        const startY = (canvas.height - (rows - 1) * spacingY) / 2;
+
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                particles.push({
+                    x: startX + c * spacingX,
+                    y: startY + r * spacingY,
+                    baseX: startX + c * spacingX,
+                    baseY: startY + r * spacingY,
+                    vx: 0,
+                    vy: 0,
+                    type: 'water'
+                });
+            }
+        }
+    }
+
+    function runSimulation(type, buttonElement) {
+        clearActiveButtons();
+        buttonElement.classList.add('active');
+        currentMode = type;
+
+        if (type === 'physical') {
+            statusText.innerHTML = "<strong>Melting Ice:</strong> Thermal energy causes H₂O molecules to vibrate rapidly and break out of their fixed crystal lattice. Notice that the molecules themselves remain completely intact!";
+            particles.forEach(p => {
+                p.type = 'water';
+                p.vx = (Math.random() - 0.5) * 2;
+                p.vy = (Math.random() - 0.5) * 2;
+            });
+        } 
+        else if (type === 'chemical') {
+            statusText.innerHTML = "<strong>Burning Wood:</strong> Oxygen reacts with the material, forcing original chemical bonds to break apart completely. Atoms rearrange to form entirely new substances (Carbon Dioxide gas, Water vapor, and Ash residue)!";
+            particles.forEach((p, index) => {
+                p.vx = (Math.random() - 0.5) * 4;
+                p.vy = (Math.random() - 0.5) * 4;
+                
+                if (index % 3 === 0) {
+                    p.type = 'co2';
+                } else if (index % 3 === 1) {
+                    p.type = 'vapor';
+                } else {
+                    p.type = 'ash';
+                    p.vx *= 0.2;
+                    p.vy = Math.abs(p.vy) * 0.5 + 0.5;
+                }
+            });
+        }
+    }
+
+    function resetSimulation(buttonElement) {
+        clearActiveButtons();
+        currentMode = 'ready';
+        statusText.innerHTML = "Lab ready. Select a change above to begin the experiment.";
+        initReadyState();
+    }
+
+    function updateAndRender() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+            if (currentMode === 'ready') {
+                p.x = p.baseX + (Math.random() - 0.5) * 1.5;
+                p.y = p.baseY + (Math.random() - 0.5) * 1.5;
+            } 
+            else if (currentMode === 'physical') {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 15 || p.x > canvas.width - 15) p.vx *= -1;
+                if (p.y < 15 || p.y > canvas.height - 15) p.vy *= -1;
+            } 
+            else if (currentMode === 'chemical') {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.type === 'ash') {
+                    if (p.y > canvas.height - 15) {
+                        p.y = canvas.height - 15;
+                        p.vx = 0;
+                        p.vy = 0;
+                    }
+                } else {
+                    if (p.x < 15 || p.x > canvas.width - 15) p.vx *= -1;
+                    if (p.y < 15 || p.y > canvas.height - 15) p.vy *= -1;
+                }
+            }
+            drawMolecule(p);
+        });
+
+        animationFrameId = requestAnimationFrame(updateAndRender);
+    }
+
+    function drawMolecule(p) {
+        if (p.type === 'water') {
+            ctx.fillStyle = '#3498db';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(p.x - 6, p.y - 5, 4, 0, Math.PI * 2);
+            ctx.arc(p.x + 6, p.y - 5, 4, 0, Math.PI * 2);
+            ctx.fill();
+        } 
+        else if (p.type === 'co2') {
+            ctx.fillStyle = '#34495e';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 7, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#e74c3c';
+            ctx.beginPath();
+            ctx.arc(p.x - 8, p.y, 6, 0, Math.PI * 2);
+            ctx.arc(p.x + 8, p.y, 6, 0, Math.PI * 2);
+            ctx.fill();
+        } 
+        else if (p.type === 'vapor') {
+            ctx.fillStyle = 'rgba(174, 214, 241, 0.7)';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+            ctx.fill();
+        } 
+        else if (p.type === 'ash') {
+            ctx.fillStyle = '#7f8c8d';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    // Attach resize listeners and initiate running loop properly
+    window.addEventListener('resize', () => { resizeCanvas(); });
+    
+    // Delayed activation checks ensuring safe rendering lifecycle parameters
+    window.onload = function() {
+        initReadyState();
+    };
+    initReadyState();
+    updateAndRender();
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- Properties Comparison Table --> 
+<h2>3. Properties Comparison Table</h2> 
+<div class="table-container"> 
+<table> 
+<thead> 
+<tr> 
+<th>Property Breakdown</th> <th>Physical Change</th> <th>Chemical Change</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+<td><strong>Core Definition</strong></td> <td>Alters appearance without altering composition.</td> <td>Reactants convert into new molecular structures.</td> </tr> 
+<tr> 
+<td><strong>Reversibility</strong></td> <td>Easy to reverse.</td> <td>Highly difficult or impossible to reverse.</td> </tr> 
+<tr> 
+<td><strong>New Materials</strong></td> <td>No brand new substances are generated.</td> <td>Creates one or more new substances.</td> </tr> 
+<tr> 
+<td><strong>Common Signs</strong></td> <td>Changes in phase, shape, or total volume.</td> <td>Bubbling gas, light, or unexpected color shifts.</td> </tr> 
+<tr> 
+<td><strong>Examples</strong></td> <td>Melting ice, crushing a can, tearing paper.</td> <td>Burning wood, rusting iron, baking a cake.</td> </tr> 
+</tbody> 
+</table> 
+</div> 
+
+<!-- Burning Candle Section --> 
+<h2>4. The Curious Case of a Burning Candle</h2> 
+<div class="candle-section"> 
+<div> 
+<p>A burning candle is a brilliant example of a process that exhibits <strong>both physical and chemical changes simultaneously</strong>.</p> 
+<p><strong>The Physical Change:</strong> The heat of the flame melts solid wax into liquid wax. As it flows away, it cools and solidifies back into wax. It changes its physical state, but no new substance forms.</p> 
+<p><strong>The Chemical Change:</strong> Liquid wax travels up the wick and vaporises. This vapour reacts with oxygen in the air (combustion) to create completely <strong>new substances</strong>: carbon dioxide, water vapour, heat, and soot. The burnt wax cannot be recovered.</p> 
+</div> 
+<div class="video-box-simulated" id="video-sim-box"> 
+<div class="play-icon" onclick="toggleSimVideo()">▶</div> 
+<strong id="video-status-text">Simulated Video Animation</strong> 
+<p id="video-desc-text" style="font-size: 0.9rem; margin-top: 5px; text-align: center;">Click play to cycle between structural stages of candle combustion.</p> 
+</div> 
+</div> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz: Chemical vs. Physical Changes</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f7;
+            color: var(--dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            max-width: 650px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--dark);
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .score-board {
+            background: var(--light);
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .score-count {
+            color: var(--primary);
+            font-size: 1.1em;
+        }
+
+        .quiz-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .question {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .topic-tag {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:hover:not([disabled]) {
+            background: #f7fafc;
+            border-color: #cbd5e0;
+        }
+
+        .option-btn[disabled] {
+            cursor: not-allowed;
+        }
+
+        /* Feedback States */
+        .option-btn.correct {
+            background-color: #d4edda !important;
+            border-color: var(--success) !important;
+            color: #155724;
+            font-weight: 600;
+        }
+
+        .option-btn.incorrect {
+            background-color: #f8d7da !important;
+            border-color: var(--danger) !important;
+            color: #721c24;
+        }
+
+        .feedback-box {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            display: none;
+            line-height: 1.4;
+        }
+
+        .feedback-box.show-correct {
+            display: block;
+            background: #e8f8f5;
+            border-left: 4px solid var(--success);
+            color: #117a65;
+        }
+
+        .feedback-box.show-incorrect {
+            display: block;
+            background: #fdf2f2;
+            border-left: 4px solid var(--danger);
+            color: #922b21;
+        }
+
+        .hint-text {
+            font-style: italic;
+            color: #718096;
+            margin-top: 8px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h2>5. Test Your Knowledge</h2>
+    
+    <!-- Score Dashboard UI element -->
+    <div class="score-board">
+        <span>Your Interactive Progress:</span>
+        <div class="score-count">Score: <span id="current-score">0</span> / 5</div>
+    </div>
+
+    <!-- Question 1 -->
+    <div class="quiz-item" id="q1-container">
+        <span class="topic-tag">Topic: Color Change and Oxidation</span>
+        <p class="question">1. A polished iron nail is left outdoors in a damp environment for two weeks and develops a flaky, reddish-brown coating. Which classification and reasoning best fit this observation?</p>
+        <div class="options-group">
+            <button class="option-btn" onclick="checkAnswer(this, 1, false, 'Incorrect. While the rust appears on the surface, the process converts the elemental iron into a completely new chemical compound (iron oxide).')">A physical change because the color change is just on the surface and can be scraped off.</button>
+            <button class="option-btn" onclick="checkAnswer(this, 1, false, 'Incorrect. Rusting actually increases the mass of the nail over time as oxygen atoms chemically bond with the iron.')">A physical change because the nail is still solid and retains its original weight before rusting.</button>
+            <button class="option-btn" onclick="checkAnswer(this, 1, true, 'Correct! The formation of rust is a classic oxidation reaction that alters the chemical composition of the material.')">A chemical change because iron reacts with oxygen and water to form a brand-new substance (iron oxide) with different properties.</button>
+            <button class="option-btn" onclick="checkAnswer(this, 1, false, 'Incorrect. The temperature required to melt iron is extremely high and does not happen outdoors under normal weather conditions; this is a reaction, not a phase change.')">A chemical change because the nail melted slightly under the outdoor heat and resolidified into a colored crust.</button>
+        </div>
+        <div class="feedback-box" id="feedback-1"></div>
+        <div class="hint-text">Hint: Think about whether the reddish-brown substance is chemically identical to the original iron metal beneath it, or if a new compound has been created through reaction with the environment.</div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="quiz-item" id="q2-container">
+        <span class="topic-tag">Topic: Reversibility and Chemical Transformation</span>
+        <p class="question">2. A student heats sucrose (table sugar) in a dry test tube. Initially, the sugar melts into a clear liquid. If heated further, it turns dark brown, releases a distinct burnt odor, and leaves behind a black carbon residue. At what point does a chemical change occur?</p>
+        <div class="options-group">
+            <button class="option-btn" onclick="checkAnswer(this, 2, true, 'Correct! The thermal decomposition (caramelization and burning) breaks the sugar molecules apart into entirely new substances.')">When it turns dark brown, smells burnt, and forms a black residue, because new chemical bonds break and form, making the process irreversible.</button>
+            <button class="option-btn" onclick="checkAnswer(this, 2, false, 'Incorrect. Melting a substance from solid to liquid is a physical change; the molecules are still sucrose.')">Only during the initial melting phase, because any change of state from solid to liquid is inherently chemical.</button>
+            Throughout the entire process, because heating any substance automatically destroys its molecular formula.</button>
+            <button class="option-btn" onclick="checkAnswer(this, 2, false, 'Incorrect. Organic compounds like sugar are highly reactive to excess heat, undergoing decomposition reactions when burned.')">Neither phase is a chemical change because sugar is organic and immune to chemical reactions from heat.</button>
+        </div>
+        <div class="feedback-box" id="feedback-2"></div>
+        <div class="hint-text">Hint: Consider the reversibility of the changes observed. Can the black carbon residue and burnt-smelling vapors be cooled back down to form normal, sweet table sugar?</div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="quiz-item" id="q3-container">
+        <span class="topic-tag">Topic: Gas Production</span>
+        <p class="question">3. When a bottle of carbonated soda is opened, dissolved carbon dioxide rushes out as a flurry of bubbles. Is this gas evolution a chemical or physical change, and why?</p>
+        <div class="options-group">
+            <button class="option-btn" onclick="checkAnswer(this, 3, false, 'Incorrect. The gas escaping is still intact CO2 molecules; they are not breaking down into individual elements.')">It is a chemical change because the pressure drop causes carbon dioxide molecules to break down into carbon and oxygen gas.</button>
+            <button class="option-btn" onclick="checkAnswer(this, 3, false, 'Incorrect. While gas evolution often signals a chemical reaction, gas escaping from a solution due to a change in solubility or pressure (like carbonation) is a physical process.')">It is a chemical change because gas production is always a definitive proof of a new chemical reaction.</button>
+            <button class="option-btn" onclick="checkAnswer(this, 3, false, 'Incorrect. The bubbles are composed of dissolved carbon dioxide that was forced into the liquid under high pressure, not trapped atmospheric air.')">It is a physical change, but only because the bubbles are made of atmospheric air that was trapped inside the bottle during bottling.</button>
